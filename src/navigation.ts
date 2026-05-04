@@ -1,45 +1,42 @@
-import { getPermalink, getBlogPermalink } from './utils/permalinks';
+import { getPermalink } from './utils/permalinks';
 
 export const headerData = {
   links: [
     { text: 'Inicio', href: '/' },
-    { text: 'Quiénes Somos', href: getPermalink('/about') },
-    { text: 'Eventos', href: getBlogPermalink() },
-    { text: 'Colabora', href: getPermalink('/colabora') }, //  <-- Nueva sección
+    { text: 'Nuestros Boxes', href: '/#productos' },
+    { text: 'La Intención', href: '/#historia' },
     { text: 'Contacto', href: '/#contacto' },
   ],
-  actions: [{ text: 'Contacto', href: '/#contacto', variant: 'primary' }],
-  showToggleTheme: false,
+  actions: [{ text: 'WhatsApp', href: 'https://wa.me/tu_numero', variant: 'primary' }],
+  showToggleTheme: false, // Mantenemos tu preferencia de no mostrar el cambio de tema
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Capítulo',
+      title: 'Ritohouse',
       links: [
-        { text: 'Quiénes Somos', href: getPermalink('/about') },
-        { text: 'Eventos', href: getBlogPermalink() },
-        { text: 'Membresía', href: '/#contacto' },
+        { text: 'Nuestra Historia', href: '/#historia' },
+        { text: 'Catálogo de Boxes', href: '/#productos' },
+        { text: 'Preguntas Frecuentes', href: '#' },
       ],
     },
     {
       title: 'Comunidad',
       links: [
-        { text: 'Instagram', href: 'https://instagram.com/wsriouruguay' },
-        { text: 'Facebook', href: 'https://facebook.com/tu_cuenta' },
+        { text: 'Instagram', href: 'https://instagram.com/ritohousepdu' },
       ],
     },
   ],
   secondaryLinks: [
-    { text: 'Fraternidad', href: '#' },
-    { text: 'Servicio', href: '#' },
-    { text: 'Honor', href: '#' },
+    { text: 'Artesanal', href: '#' },
+    { text: 'Místico', href: '#' },
+    { text: 'Uruguay', href: '#' },
   ],
   socialLinks: [
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://instagram.com/wsriouruguay' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: 'https://facebook.com/tu_cuenta' },
+    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://instagram.com/ritohousepdu' },
   ],
   footNote: `
-    Diseñado por STEB · Widows Sons Rio Uruguay © 2026
+    Diseñado por <a class="text-[#D4A373] hover:underline font-semibold" href="#">Steb</a> · Ritohouse © 2026
   `,
 };
