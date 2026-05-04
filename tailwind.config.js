@@ -7,9 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--aw-color-primary)',
-        secondary: 'var(--aw-color-secondary)',
-        accent: 'var(--aw-color-accent)',
+        // Colores personalizados para Ritohouse integrados con las variables de AstroWind
+        primary: '#5C544E',   // Marrón ceniza/madera (como el hilo de cáñamo)
+        secondary: '#EAE5DE', // Color Hueso/Yeso para fondos suaves
+        accent: '#D4A373',    // Tono tierra suave para detalles
+        
+        // Mantenemos las variables de texto por defecto del sistema
         default: 'var(--aw-color-text-default)',
         muted: 'var(--aw-color-text-muted)',
       },
