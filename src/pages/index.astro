@@ -6,17 +6,15 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import { Icon } from 'astro-icon/components';
 
-// Importación de imágenes (Asegúrate de que estas imágenes existan en tu carpeta assets)
-// Sugerencia: img1 puede ser el ambiente del ritual y img2 el detalle de las manos trabajando o el box
-import heroImg from '~/assets/images/hero-ritohouse.png'; 
-import detalleBox from '~/assets/images/detalle-box.png';
+// Mantenemos los nombres de archivo originales para evitar el error de build
+import img1 from '~/assets/images/img1.png';
+import img2 from '~/assets/images/img2.png';
 
 const metadata = {
   title: 'Ritohouse — Rituales que transforman hogares',
   ignoreTitleTemplate: true,
 };
 
-// Configuración del footer con tu crédito solicitado
 const footerData = {
   secondaryLinks: [
     { text: 'Diseñado por Steb · Ritohouse © 2026', href: '#' },
@@ -26,11 +24,10 @@ const footerData = {
 
 <Layout metadata={metadata} footerData={footerData}>
 
-  <!-- SECCIÓN HERO: MÍSTICA Y RÚSTICA -->
+  <!-- SECCIÓN HERO -->
   <section class="relative h-screen flex items-center justify-center bg-[#EAE5DE] overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <!-- Imagen de fondo con opacidad suave para el tono rústico -->
-      <img src={heroImg.src} alt="Ritual Ritohouse" class="w-full h-full object-cover opacity-40" />
+      <img src={img1.src} alt="Ritual Ritohouse" class="w-full h-full object-cover opacity-40" />
       <div class="absolute inset-0 bg-gradient-to-b from-[#EAE5DE]/20 via-transparent to-[#EAE5DE]"></div>
     </div>
     
@@ -42,13 +39,13 @@ const footerData = {
         Piezas artesanales en yeso y cemento diseñadas para armonizar tu hogar.
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#tienda" class="bg-[#5C544E] text-white font-semibold py-4 px-10 rounded-full no-underline tracking-widest hover:bg-[#D4A373] transition-colors shadow-lg">Ver los Boxes</a>
+        <a href="#productos" class="bg-[#5C544E] text-white font-semibold py-4 px-10 rounded-full no-underline tracking-widest hover:bg-[#D4A373] transition-colors shadow-lg">Ver los Boxes</a>
         <a href="#historia" class="text-[#5C544E] font-semibold py-4 px-10 no-underline hover:text-[#D4A373]">Nuestra Filosofía ↓</a>
       </div>
     </div>
   </section>
 
-  <!-- SECCIÓN: EL ALMA DEL NEGOCIO -->
+  <!-- SECCIÓN HISTORIA -->
   <Content
     id="historia"
     isReversed
@@ -58,7 +55,7 @@ const footerData = {
       {
         title: 'Piezas en Yeso y Cemento',
         description: 'Cada figura y bandeja es vertida a mano, cuidando la textura y la pureza del material para crear objetos únicos.',
-        icon: 'tabler: دست-grab', // Un icono de manos o artesano
+        icon: 'tabler:artboard', 
       },
       {
         title: 'Velas y Aromas',
@@ -67,61 +64,53 @@ const footerData = {
       },
       {
         title: 'Intención y Decretos',
-        description: 'Nuestros boxes incluyen tarjetas con decretos. El ritual se completa cuando tú le das la intención al producto.',
+        description: 'Nuestros boxes incluyen tarjetas con decretos asociados a las piezas en yeso para que los usuarios les den su propia intención.',
         icon: 'tabler:feather',
       },
     ]}
     image={{
-      src: detalleBox,
+      src: img2,
       alt: 'Detalle de un box de ritual Ritohouse',
     }}
   >
     <Fragment slot="content">
       <div class="text-[#5C544E]">
         <p class="mb-4">
-          <strong>Ritohouse</strong> nace de la unión de la creatividad y la espiritualidad en el hogar. Junto a mi compañera, creamos <strong>boxes de ritual</strong> que van más allá de la decoración.
+          <strong>Ritohouse</strong> nace de la unión de la creatividad y la espiritualidad en el hogar. Junto a mi señora, creamos <strong>boxes de ritual</strong> que incluyen artículos en yeso, velas, inciensos y palo santo.
         </p>
         <p class="mb-4">
-          Cada elemento —desde el palo santo hasta la pieza de yeso— tiene un propósito. No solo vendemos objetos, ofrecemos momentos de pausa y conexión para que los decretos que lanzas al universo se manifiesten en tu vida diaria.
+          Cada box está acompañado de tarjetas y decretos que los usuarios deben leer para darle la intención al producto y que esta se manifieste en sus vidas.
         </p>
         <p>
-          Ubicados en el litoral uruguayo, cada entrega es un pedazo de nuestra dedicación artesanal, empaquetado con materiales naturales como el hilo de cáñamo y papel kraft.
+          Ubicados en el litoral uruguayo, cada entrega es un pedazo de nuestra dedicación artesanal, empaquetado con materiales naturales.
         </p>
       </div>
-      
-      <h3 class="text-2xl font-serif font-bold tracking-tight text-[#5C544E] mt-8 mb-2">
-        Rituales que transforman
-      </h3>
-      <p class="text-lg text-[#D4A373] font-semibold italic">
-        Una pausa necesaria en la rapidez del mundo moderno.
-      </p>
     </Fragment>
   </Content>
 
-  <!-- SECCIÓN: CATEGORÍAS RÚSTICAS -->
+  <!-- SECCIÓN CATEGORÍAS -->
   <Features
     id="productos"
     tagline="Nuestra Colección"
     title="Elementos para tu Ritual"
     items={[
       { title: 'Boxes Completos', description: 'Kits listos con todo lo necesario para intencionar.', icon: 'tabler:package' },
-      { title: 'Piezas en Yeso', description: 'Portaveleras, bandejas y figuras decorativas.', icon: 'tabler:potted-plant' },
+      { title: 'Piezas en Yeso', description: 'Portaveleras, bandejas y figuras decorativas artesanalmente producidas.', icon: 'tabler:flower' },
       { title: 'Aromaterapia', description: 'Inciensos, palo santo y velas con aromas naturales.', icon: 'tabler:wind' },
       { title: 'Jabones Artesanales', description: 'Limpieza física y energética con ingredientes naturales.', icon: 'tabler:droplet' },
-      { title: 'Decretos', description: 'Tarjetas con afirmaciones para cada tipo de box.', icon: 'tabler:notes' },
+      { title: 'Decretos', description: 'Tarjetas con afirmaciones para cada tipo de box y ritual.', icon: 'tabler:notes' },
       { title: 'Adornos Rústicos', description: 'Detalles en cemento y madera para espacios únicos.', icon: 'tabler:home-heart' },
     ]}
   />
 
-  <!-- SECCIÓN DE CONTACTO: ADAPTADA A RITOHOUSE -->
+  <!-- SECCIÓN CONTACTO -->
   <section id="contacto" class="relative py-16 bg-[#EAE5DE] border-t border-[#D4A373]/20">
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
       <div>
         <h2 class="text-3xl md:text-4xl font-serif font-bold text-[#5C544E] uppercase tracking-widest mb-4">¡Conectemos!</h2>
         <p class="text-[#5C544E]/80 text-lg mb-8">
-          ¿Tienes dudas sobre cómo realizar tu ritual o quieres un box personalizado? Escríbenos y te asesoraremos con amor.
+          ¿Tienes dudas sobre cómo realizar tu ritual o quieres un box personalizado? Escríbenos y te asesoraremos.
         </p>
-        
         <div class="space-y-6">
           <div class="flex items-start">
             <Icon name="tabler:brand-instagram" class="w-6 h-6 text-[#D4A373] mr-4" />
@@ -130,48 +119,19 @@ const footerData = {
               <p class="text-[#5C544E]/70">@ritohousepdu</p>
             </div>
           </div>
-          <div class="flex items-start">
-            <Icon name="tabler:map-pin" class="w-6 h-6 text-[#D4A373] mr-4" />
-            <div>
-              <h4 class="text-[#5C544E] font-bold">Ubicación</h4>
-              <p class="text-[#5C544E]/70">Paysandú, Uruguay</p>
-            </div>
-          </div>
         </div>
       </div>
 
       <div class="bg-white/50 p-8 rounded-2xl border border-[#D4A373]/20 shadow-sm">
-        <form action="https://formspree.io/f/tu-id-ritohouse" method="POST" class="space-y-4">
-          <div>
-            <label for="name" class="block text-sm font-medium text-[#5C544E] mb-1">Nombre</label>
-            <input type="text" name="name" id="name" required class="w-full bg-[#EAE5DE]/30 border border-[#D4A373]/30 text-[#5C544E] rounded-lg px-4 py-3 focus:border-[#D4A373] outline-none transition-colors" />
-          </div>
-          <div>
-            <label for="email" class="block text-sm font-medium text-[#5C544E] mb-1">Email</label>
-            <input type="email" name="email" id="email" required class="w-full bg-[#EAE5DE]/30 border border-[#D4A373]/30 text-[#5C544E] rounded-lg px-4 py-3 focus:border-[#D4A373] outline-none transition-colors" />
-          </div>
-          <div>
-            <label for="message" class="block text-sm font-medium text-[#5C544E] mb-1">¿En qué ritual estás pensando?</label>
-            <textarea id="message" name="message" rows="4" required class="w-full bg-[#EAE5DE]/30 border border-[#D4A373]/30 text-[#5C544E] rounded-lg px-4 py-3 focus:border-[#D4A373] outline-none transition-colors"></textarea>
-          </div>
-          <button type="submit" class="w-full bg-[#D4A373] text-white font-bold py-3 rounded-lg uppercase tracking-widest hover:bg-[#5C544E] transition-all shadow-md">
+        <form action="https://formspree.io/f/tu-id" method="POST" class="space-y-4">
+          <input type="text" name="name" placeholder="Tu nombre" required class="w-full bg-[#EAE5DE]/30 border border-[#D4A373]/30 rounded-lg px-4 py-3" />
+          <input type="email" name="email" placeholder="Tu email" required class="w-full bg-[#EAE5DE]/30 border border-[#D4A373]/30 rounded-lg px-4 py-3" />
+          <textarea name="message" placeholder="¿En qué ritual estás pensando?" rows="4" required class="w-full bg-[#EAE5DE]/30 border border-[#D4A373]/30 rounded-lg px-4 py-3"></textarea>
+          <button type="submit" class="w-full bg-[#D4A373] text-white font-bold py-3 rounded-lg uppercase tracking-widest hover:bg-[#5C544E] transition-all">
             Enviar Mensaje
           </button>
         </form>
       </div>
-    </div>
-  </section>
-
-  <!-- CIERRE INSPIRACIONAL -->
-  <section class="py-16 bg-[#EAE5DE] border-t border-[#D4A373]/10">
-    <div class="max-w-6xl mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-4xl font-serif font-bold text-[#5C544E] mb-6 uppercase tracking-widest">
-        Rito<span class="text-[#D4A373]">House</span>
-      </h2>
-      <p class="text-xl text-[#5C544E]/70 max-w-2xl mx-auto italic font-light">
-        "No vendemos objetos, creamos el puente hacia tu intención."
-      </p>
-      <div class="mt-8 w-24 h-px bg-[#D4A373] mx-auto opacity-50"></div>
     </div>
   </section>
 
