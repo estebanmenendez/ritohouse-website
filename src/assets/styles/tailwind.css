@@ -2,102 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 0. BLOQUEO DE COLOR MÍSTICO */
+/* 0. FONDO PERGAMINO / HOJA VIEJA */
 html {
-  background-color: #EAE5DE !important; /* Color Yeso/Hueso original */
+  background-color: #F2E8DF !important; /* Un tono más cálido y rústico que el anterior */
   color-scheme: light;
 }
 
-/* CONFIGURACIÓN DE COLORES RITOHOUSE ORIGINAL */
 @layer base {
   :root {
     --aw-font-sans: 'InterVariable', 'Inter', ui-sans-serif, system-ui;
     --aw-font-serif: 'Georgia', serif;
 
-    /* Marrón Ceniza/Cáñamo #5C544E */
-    --aw-color-primary: 92 84 78;
-    /* Tono Tierra suave #D4A373 */
-    --aw-color-accent: 212 163 115;
-    --aw-color-secondary: 217 210 201;
+    /* Primario: Marrón Ébano (Para que el texto IMPACTE y sea legible) */
+    /* #3D2B1F -> rgb(61, 43, 31) */
+    --aw-color-primary: 61 43 31;
+    
+    /* Acento: Terracota Suave (Elegancia contemporánea) */
+    /* #B57E5F -> rgb(181, 126, 95) */
+    --aw-color-accent: 181 126 95;
+    
+    --aw-color-secondary: 215 194 175;
 
-    /* Fondo de Página: Yeso #EAE5DE */
-    --aw-color-bg-page: 234 229 222;
-    --aw-color-bg-page-dark: 234 229 222;
+    /* Fondos de página */
+    --aw-color-bg-page: 242 232 223;
+    --aw-color-bg-page-dark: 242 232 223;
 
-    /* Textos: Marrón suave para misticismo */
-    --aw-color-text-page: 62 56 51;
-    --aw-color-text-muted: 107 99 92;
-    --aw-color-text-heading: 92 84 78;
+    /* COLORES DE TEXTO FORZADOS PARA LEGIBILIDAD */
+    --aw-color-text-page: 44 34 27;     /* Casi negro/marrón muy oscuro */
+    --aw-color-text-muted: 85 70 60;    /* Marrón medio para descripciones */
+    --aw-color-text-heading: 61 43 31;  /* Títulos con máxima fuerza */
   }
 
-  .dark {
-    --aw-color-bg-page: 234 229 222;
-    --aw-color-text-page: 62 56 51;
+  /* Desactivar cualquier rastro de modo oscuro */
+  .dark, [data-theme='dark'] {
+    --aw-color-bg-page: 242 232 223;
+    --aw-color-text-page: 44 34 27;
   }
 
-  ::selection {
-    background-color: rgb(var(--aw-color-accent));
-    color: #ffffff;
+  /* REGLA DE ORO: Ningún texto puede ser blanco en este fondo */
+  p, span, li, a {
+    color: rgb(var(--aw-color-text-page));
   }
 
-  a {
-    @apply transition-colors duration-200;
-    color: inherit;
-    text-decoration: none;
-  }
-
-  /* SOBRESCRIBIR AZULES Y DORADOS */
-  .text-primary, 
-  .text-blue-600, 
-  .aw-link-active,
-  [aria-current="page"] {
-    color: rgb(var(--aw-color-primary)) !important;
-  }
-
-  .bg-primary, 
-  .bg-accent {
-    background-color: rgb(var(--aw-color-accent)) !important;
+  /* Títulos en Serif para elegancia */
+  h1, h2, h3, h4 {
+    font-family: var(--aw-font-serif);
+    color: rgb(var(--aw-color-text-heading)) !important;
   }
 }
 
 @layer components {
-  .btn {
-    @apply inline-flex items-center justify-center rounded-full border-gray-300 border bg-transparent font-medium text-center text-base transition py-2.5 px-6 ease-in duration-200;
-  }
-
+  /* Botones con contraste real */
   .btn-primary {
-    @apply btn font-semibold bg-[#5C544E] text-white border-[#5C544E] hover:bg-[#D4A373] hover:border-[#D4A373] !important;
-  }
-
-  .btn-secondary {
-    @apply btn border-[#5C544E] text-[#5C544E] hover:bg-[#5C544E] hover:text-white;
+    @apply inline-flex items-center justify-center rounded-full bg-[#3D2B1F] text-[#F2E8DF] px-8 py-3 font-bold hover:bg-[#B57E5F] transition-all !important;
   }
 }
 
-/* HEADER RITOHOUSE: LIMPIO Y CLARO */
+/* HEADER: Limpio y con contraste en el menú */
 #header {
-  @apply bg-[#EAE5DE] !important;
-  border-bottom: 1px solid rgba(146, 134, 123, 0.1);
+  background-color: #F2E8DF !important;
+  border-bottom: 1px solid rgba(61, 43, 31, 0.1);
 }
 
-#header.scroll > div:first-child {
-  background-color: rgba(234, 229, 222, 0.9) !important;
-  backdrop-filter: blur(8px);
+#header nav a {
+  color: #3D2B1F !important;
+  font-weight: 700 !important;
 }
 
-#header.expanded nav {
-  @apply bg-[#EAE5DE] !important;
+#header nav a:hover {
+  color: #B57E5F !important;
 }
 
-/* TIPOGRAFÍA MÍSTICA */
-h1, h2, h3 {
-  font-family: var(--aw-font-serif);
-  @apply tracking-tight;
+/* FIX PARA LA SECCIÓN DE LA IMAGEN (Features) */
+/* Esto obliga a que los títulos de los items (Boxes, Velas, etc) se vean */
+.text-white {
+  color: #3D2B1F !important;
 }
 
-/* FIX IMÁGENES */
-img {
-  object-fit: cover !important;
-  background-color: transparent !important;
-  border-radius: 0.5rem;
+.text-slate-400, .text-muted {
+  color: #55463C !important;
 }
