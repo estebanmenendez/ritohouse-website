@@ -6,7 +6,7 @@ const metadata = {
   title: 'Tienda General — Accesorios RitoHouse',
 };
 
-// Ejemplo de productos individuales
+// Catálogo de productos individuales
 const accesorios = [
   { nombre: 'Bandeja Ovalada', categoria: 'Yeso y Cemento', precio: '350' },
   { nombre: 'Vela Aromática Soja', categoria: 'Velas', precio: '420' },
@@ -20,24 +20,31 @@ const accesorios = [
   <section class="bg-[#F2E8DF] min-h-screen py-20 text-[#3D2B1F]">
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-16">
-        <h1 class="text-5xl font-serif font-bold mb-4 uppercase">Tienda General</h1>
-        <p class="italic text-[#55463C]">Accesorios individuales para complementar tu santuario personal</p>
+        <h1 class="text-5xl font-serif font-bold mb-4 uppercase tracking-tighter">Tienda General</h1>
+        <p class="italic text-[#55463C] text-lg">Accesorios individuales para complementar tu santuario personal</p>
       </div>
 
       <!-- Grid de Accesorios -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         {accesorios.map((item) => (
-          <div class="bg-white/30 p-4 rounded-2xl border border-[#B57E5F]/10 hover:shadow-lg transition-all flex flex-col text-center">
-            <div class="aspect-square bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center italic text-[#B57E5F]/30">Foto</div>
+          <div class="bg-white/30 p-4 rounded-2xl border border-[#B57E5F]/10 hover:shadow-lg transition-all flex flex-col text-center group">
+            <div class="aspect-square bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center italic text-[#B57E5F]/30 overflow-hidden">
+              {/* Espacio para imagen futura */}
+              <span class="group-hover:scale-110 transition-transform duration-500">Foto {item.nombre}</span>
+            </div>
+            
             <p class="text-[10px] uppercase tracking-widest text-[#B57E5F] font-bold mb-1">{item.categoria}</p>
-            <h3 class="font-bold mb-2 flex-grow">{item.nombre}</h3>
-            <p class="font-serif font-bold mb-4">${item.precio}</p>
-            <a 
-              href={`https://wa.me/tu_numero?text=Hola! Me interesa comprar el accesorio: ${item.nombre}`}
-              class="bg-[#3D2B1F] text-[#F2E8DF] py-2 rounded-lg text-sm font-bold hover:bg-[#B57E5F] transition-colors"
+            <h3 class="font-bold mb-2 flex-grow text-lg">{item.nombre}</h3>
+            <p class="font-serif font-bold mb-4 text-xl">${item.precio}</p>
+            
+            {/* BOTÓN CONECTADO AL CARRITO GLOBAL */}
+            <button 
+              onclick={`agregarAlCarrito('${item.nombre}', '${item.precio}')`}
+              class="bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-xl text-sm font-bold hover:bg-[#B57E5F] transition-all active:scale-95 flex items-center justify-center gap-2"
             >
-              Comprar
-            </a>
+              <Icon name="tabler:plus" class="w-4 h-4" />
+              Agregar
+            </button>
           </div>
         ))}
       </div>
