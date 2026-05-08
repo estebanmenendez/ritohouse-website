@@ -93,22 +93,89 @@ const footerData = {
     </Fragment>
   </Content>
 
-  <!-- SECCIÓN CATEGORÍAS -->
+  <!-- NUEVA SECCIÓN DE BOXES (ESTILO TIENDA) -->
+  <section id="productos" class="py-20 bg-[#F2E8DF]">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <p class="text-[#B57E5F] font-bold uppercase tracking-widest text-sm mb-3">Nuestra Colección</p>
+        <h2 class="text-4xl md:text-6xl font-serif font-bold text-[#3D2B1F] mb-6">Nuestros Boxes</h2>
+        <p class="text-[#55463C] max-w-2xl mx-auto text-lg italic">Selecciona el nivel de profundidad para tu ritual. Desde la base esencial hasta la trascendencia plena.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-10">
+        
+        <!-- 1. RITUALES ESENCIALES -->
+        <div class="flex flex-col bg-white/20 rounded-3xl border border-[#B57E5F]/10 overflow-hidden hover:shadow-xl transition-all group">
+          <div class="h-72 overflow-hidden bg-slate-200">
+            <!-- Reemplazar con imagen de box esencial -->
+            <div class="w-full h-full flex items-center justify-center text-[#B57E5F]/30 italic bg-[#EAE5DE]">Imagen Esencial</div>
+          </div>
+          <div class="p-8 flex flex-col flex-grow">
+            <h3 class="text-2xl font-serif font-bold text-[#3D2B1F] mb-3">Rituales Esenciales</h3>
+            <p class="text-[#55463C] text-sm mb-6 flex-grow">La base fundamental para iniciar tu camino místico. Armonía y sencillez en cada elemento.</p>
+            <ul class="space-y-3 mb-8 text-[#3D2B1F]/80 text-sm">
+              <li class="flex items-center"><Icon name="tabler:check" class="w-4 h-4 mr-2 text-[#B57E5F]" /> Pieza de yeso artesanal</li>
+              <li class="flex items-center"><Icon name="tabler:check" class="w-4 h-4 mr-2 text-[#B57E5F]" /> Vela de intención base</li>
+              <li class="flex items-center"><Icon name="tabler:check" class="w-4 h-4 mr-2 text-[#B57E5F]" /> Inciensos seleccionados</li>
+            </ul>
+            <a href="https://wa.me/tu_numero?text=Hola! Me interesa el Box de Rituales Esenciales" class="w-full text-center bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-full font-bold hover:bg-[#B57E5F] transition-colors">Consultar</a>
+          </div>
+        </div>
+
+        <!-- 2. RITUALES EXPANSIÓN -->
+        <div class="flex flex-col bg-white/40 rounded-3xl border-2 border-[#B57E5F]/30 overflow-hidden shadow-2xl relative scale-105 z-10 group">
+          <div class="absolute top-4 right-4 bg-[#B57E5F] text-[#F2E8DF] text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">Recomendado</div>
+          <div class="h-72 overflow-hidden bg-slate-200">
+            <!-- Reemplazar con imagen de box expansión -->
+            <div class="w-full h-full flex items-center justify-center text-[#B57E5F]/30 italic bg-[#EAE5DE]">Imagen Expansión</div>
+          </div>
+          <div class="p-8 flex flex-col flex-grow">
+            <h3 class="text-2xl font-serif font-bold text-[#3D2B1F] mb-3">Rituales Expansión</h3>
+            <p class="text-[#55463C] text-sm mb-6 flex-grow">Avanza en tu conexión. Incorporación de botánica natural y decretos con mayor profundidad.</p>
+            <ul class="space-y-3 mb-8 text-[#3D2B1F]/80 text-sm">
+              <li class="flex items-center"><Icon name="tabler:circle-plus" class="w-4 h-4 mr-2 text-[#B57E5F]" /> Set de piezas decorativas</li>
+              <li class="flex items-center"><Icon name="tabler:circle-plus" class="w-4 h-4 mr-2 text-[#B57E5F]" /> Incorporación de plantas secas</li>
+              <li class="flex items-center"><Icon name="tabler:circle-plus" class="w-4 h-4 mr-2 text-[#B57E5F]" /> Tarjetas con contenido ampliado</li>
+            </ul>
+            <a href="https://wa.me/tu_numero?text=Hola! Me interesa el Box de Rituales Expansión" class="w-full text-center bg-[#B57E5F] text-white py-3 rounded-full font-bold hover:bg-[#3D2B1F] transition-colors shadow-lg">Solicitar Box</a>
+          </div>
+        </div>
+
+        <!-- 3. RITUALES TRASCENDENCIA -->
+        <div class="flex flex-col bg-white/20 rounded-3xl border border-[#B57E5F]/10 overflow-hidden hover:shadow-xl transition-all group">
+          <div class="h-72 overflow-hidden bg-slate-200">
+            <!-- Reemplazar con imagen de box trascendencia -->
+            <div class="w-full h-full flex items-center justify-center text-[#B57E5F]/30 italic bg-[#EAE5DE]">Imagen Trascendencia</div>
+          </div>
+          <div class="p-8 flex flex-col flex-grow">
+            <h3 class="text-2xl font-serif font-bold text-[#3D2B1F] mb-3">Rituales Trascendencia</h3>
+            <p class="text-[#55463C] text-sm mb-6 flex-grow">La experiencia definitiva. Calidad premium en papelería y máxima variedad de elementos sagrados.</p>
+            <ul class="space-y-3 mb-8 text-[#3D2B1F]/80 text-sm">
+              <li class="flex items-center"><Icon name="tabler:star" class="w-4 h-4 mr-2 text-[#B57E5F]" /> Alquimia premium (Yeso + Cemento)</li>
+              <li class="flex items-center"><Icon name="tabler:star" class="w-4 h-4 mr-2 text-[#B57E5F]" /> Papelería de alta gramaje y diseño</li>
+              <li class="flex items-center"><Icon name="tabler:star" class="w-4 h-4 mr-2 text-[#B57E5F]" /> Kit completo de purificación pro</li>
+            </ul>
+            <a href="https://wa.me/tu_numero?text=Hola! Me interesa el Box de Rituales Trascendencia" class="w-full text-center bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-full font-bold hover:bg-[#B57E5F] transition-colors">Consultar Premium</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN CATEGORÍAS (RESUMEN) -->
   <Features
-    id="productos"
-    tagline="Nuestra Colección"
-    title="Elementos para tu Ritual"
+    id="detalles"
+    tagline="Nuestros Valores"
+    title="Elementos Esenciales"
     items={[
-      { title: 'Boxes de Intención', description: 'Kits curados para propósitos específicos de bienestar.', icon: 'tabler:package' },
-      { title: 'Esculturas Funcionales', description: 'Portaveleras y bandejas de diseño artesanal único.', icon: 'tabler:flower' },
       { title: 'Botánica Sagrada', description: 'Inciensos y palo santo de recolección consciente.', icon: 'tabler:wind' },
       { title: 'Higiene Consciente', description: 'Jabones naturales para la limpieza física y energética.', icon: 'tabler:droplet' },
-      { title: 'Afirmaciones', description: 'Tarjetas con decretos para sellar cada uno de tus rituales.', icon: 'tabler:notes' },
       { title: 'Diseño Rústico', description: 'Adornos contemporáneos en materiales nobles.', icon: 'tabler:home-heart' },
     ]}
   />
 
-  <!-- SECCIÓN CONTACTO (PUNTO 1 CORREGIDO) -->
+  <!-- SECCIÓN CONTACTO -->
   <section id="contacto" class="relative py-16 bg-[#F2E8DF] border-t border-[#B57E5F]/20">
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
       <div>
