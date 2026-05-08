@@ -1,30 +1,30 @@
 site:
-  name: Widows Sons Rio Uruguay
-  site: 'https://www.wsriouruguay.com'
+  name: RitoHouse
+  site: 'https://ritohouse.com' # Actualiza esto cuando tengas tu dominio final
   base: '/'
   trailingSlash: false
 
   googleSiteVerificationId: orcPxI47GSa-cRvY11tUe6iGg2IO_RPvnA1q95iEM3M
 
-# Metadatos SEO
+# Metadatos SEO - RitoHouse
 metadata:
   title:
-    default: Widows Sons — Capítulo Rio Uruguay
-    template: '%s — Widows Sons'
-  description: 'Sitio oficial de los Widows Sons, Capítulo Rio Uruguay. Fraternidad, motociclismo y caridad en el litoral uruguayo.'
+    default: RitoHouse — Rituales que transforman hogares
+    template: '%s — RitoHouse'
+  description: 'Piezas artesanales en yeso y cemento. Rituales con intención para armonizar tus espacios. Paysandú, Uruguay.'
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Widows Sons Rio Uruguay
+    site_name: RitoHouse
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/box-esencial.png' # Usamos una de tus fotos nuevas para redes sociales
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@widowssons'
-    site: '@widowssons'
+    handle: '@ritohouse'
+    site: '@ritohouse'
     cardType: summary_large_image
 
 i18n:
@@ -33,42 +33,41 @@ i18n:
 
 apps:
   blog:
+    isEnabled: false # Desactivado temporalmente si no vas a subir artículos aún
+
+  post:
+    isEnabled: false
+    permalink: '/%slug%'
+    robots:
+      index: true
+
+  list:
+    isEnabled: false
+    pathname: 'blog'
+    robots:
+      index: true
+
+  category:
     isEnabled: true
-    postsPerPage: 6
+    pathname: 'categoria'
+    robots:
+      index: true
 
-    post:
-      isEnabled: true
-      permalink: '/%slug%'
-      robots:
-        index: true
+  tag:
+    isEnabled: true
+    pathname: 'etiqueta'
+    robots:
+      index: false
 
-    list:
-      isEnabled: true
-      pathname: 'blog'
-      robots:
-        index: true
-
-    category:
-      isEnabled: true
-      pathname: 'category'
-      robots:
-        index: true
-
-    tag:
-      isEnabled: true
-      pathname: 'tag'
-      robots:
-        index: false
-
-    isRelatedPostsEnabled: true
-    relatedPostsCount: 4
+  isRelatedPostsEnabled: true
+  relatedPostsCount: 4
 
 analytics:
   vendors:
     googleAnalytics:
       id: null
 
-# Configuración de Interfaz: Forzado de Modo Oscuro
+# Configuración de Interfaz: Estética Clara y Orgánica
 ui:
-  theme: dark
+  theme: light
   showThemeSwitcher: false
