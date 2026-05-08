@@ -7,8 +7,9 @@ export const headerData = {
     { text: 'Tienda General', href: '/tienda-general' },
     { text: 'Contacto', href: '/#contacto' },
   ],
-  actions: [{ text: 'WhatsApp', href: 'https://wa.me/tu_numero', variant: 'primary' }],
-  showToggleTheme: false, 
+  actions: [{ text: 'WhatsApp',
+      href: 'https://wa.me/59899556772', // Formato internacional para Uruguay
+      variant: 'primary'
 };
 
 export const footerData = {
