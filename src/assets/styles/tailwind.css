@@ -1,110 +1,74 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* ==========================================================================
+   RITOHOUSE: LIMPIEZA DEFINITIVA DEL HEADER Y CONTRASTE DE IMPACTO
+   ========================================================================== */
 
-/* 0. BLOQUEO DE COLOR PERGAMINO (Efecto hoja vieja) */
-html {
-  background-color: #F2E8DF !important; /* Tono lino/hoja vieja */
-  color-scheme: light;
+/* 1. Forzar el fondo del encabezado y eliminar la franja negra */
+#header, 
+#header div, 
+header nav, 
+header ul {
+  background-color: #F2E8DF !important; /* Tono Hoja Vieja/Pergamino */
+  background-image: none !important;
 }
 
-/* CONFIGURACIÓN DE COLORES RITOHOUSE PDU */
-@layer base {
-  :root {
-    --aw-font-sans: 'InterVariable', 'Inter', ui-sans-serif, system-ui;
-    --aw-font-serif: 'Georgia', serif;
-
-    /* Primario: Marrón Café profundo (Para máximo contraste en textos) 
-       #3E2D23 -> rgb(62, 45, 35) */
-    --aw-color-primary: 62 45 35;
-    
-    /* Acento: Terracota suave / Mudra (Efecto rústico moderno)
-       #B57E5F -> rgb(181, 126, 95) */
-    --aw-color-accent: 181 126 95;
-    
-    /* Secundario: Arena rústica */
-    --aw-color-secondary: 215 194 175;
-
-    /* Fondo de Página: Pergamino claro
-       #F2E8DF -> rgb(242, 232, 223) */
-    --aw-color-bg-page: 242 232 223;
-    --aw-color-bg-page-dark: 242 232 223;
-
-    /* Textos con alto contraste para legibilidad */
-    --aw-color-text-page: 44 34 27;     /* Marrón casi negro */
-    --aw-color-text-muted: 95 78 66;    /* Marrón medio */
-    --aw-color-text-heading: 62 45 35;  /* Títulos profundos */
-  }
-
-  /* Desactivar modo oscuro persistente del sitio anterior */
-  .dark, [data-theme='dark'] {
-    --aw-color-bg-page: 242 232 223;
-    --aw-color-text-page: 44 34 27;
-    --aw-color-text-muted: 95 78 66;
-    --aw-color-text-heading: 62 45 35;
-  }
-
-  ::selection {
-    background-color: rgb(var(--aw-color-accent));
-    color: #ffffff;
-  }
-
-  /* RESET DE ENLACES PARA ALTO CONTRASTE */
-  header a, 
-  .aw-link-active,
-  [aria-current="page"] {
-    color: #3E2D23 !important;
-    font-weight: 600;
-  }
-
-  header a:hover {
-    color: #B57E5F !important;
-  }
-}
-
-@layer components {
-  .btn {
-    @apply inline-flex items-center justify-center rounded-full border bg-transparent font-bold text-center text-base transition py-2.5 px-8 ease-in duration-200 shadow-sm;
-  }
-
-  .btn-primary {
-    @apply btn bg-[#3E2D23] text-[#F2E8DF] border-[#3E2D23] hover:bg-[#B57E5F] hover:border-[#B57E5F] !important;
-  }
-
-  .btn-secondary {
-    @apply btn border-[#3E2D23] text-[#3E2D23] hover:bg-[#3E2D23] hover:text-[#F2E8DF];
-  }
-}
-
-/* HEADER: ELIMINAR EL NEGRO Y LOS TEXTOS LAVADOS */
+/* 2. Borde inferior sutil para dar estructura sin ensuciar */
 #header {
-  @apply bg-[#F2E8DF] !important;
-  border-bottom: 1px solid rgba(62, 45, 35, 0.1);
+  border-bottom: 1px solid rgba(62, 45, 35, 0.15) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
 }
 
-#header.scroll > div:first-child {
-  background-color: rgba(242, 232, 223, 0.95) !important;
-  backdrop-filter: blur(8px);
+/* 3. Impacto visual en el nombre de la marca (Logo) */
+#header .self-center,
+#header span {
+  color: #3E2D23 !important; /* Marrón Café Profundo */
+  font-family: 'Georgia', serif !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.02em !important;
+  opacity: 1 !important;
 }
 
-#header.expanded nav {
-  @apply bg-[#F2E8DF] !important;
+/* 4. Navegación: Máxima legibilidad */
+#header nav a {
+  color: #3E2D23 !important; /* Contraste fuerte contra el fondo crema */
+  font-weight: 700 !important;
+  font-size: 0.95rem !important;
+  opacity: 0.9 !important;
+  transition: all 0.2s ease !important;
 }
 
-/* TIPOGRAFÍA MÍSTICA Y MODERNA */
-h1, h2, h3 {
-  font-family: var(--aw-font-serif);
-  @apply tracking-tighter;
+#header nav a:hover {
+  color: #B57E5F !important; /* Terracota rústico al pasar el mouse */
+  opacity: 1 !important;
 }
 
-/* FIX IMÁGENES: Sin bordes negros */
-img {
-  object-fit: cover !important;
+/* 5. Estado Activo (Donde está el usuario) */
+#header nav a.aw-link-active,
+#header nav a[aria-current="page"] {
+  color: #B57E5F !important;
   background-color: transparent !important;
-  border-radius: 1rem;
+  border-bottom: 2px solid #B57E5F !important;
 }
 
-/* ELIMINACIÓN DE AZULES Y DORADOS RESIDUALES */
-.bg-blue-600, .text-blue-600, .bg-primary, .text-primary {
-  @apply transition-none;
+/* 6. Botón WhatsApp: El punto de impacto moderno */
+#header .btn-primary {
+  background-color: #3E2D23 !important;
+  color: #F2E8DF !important;
+  border-radius: 9999px !important; /* Totalmente redondeado */
+  padding: 0.6rem 1.5rem !important;
+  font-weight: 800 !important;
+  border: none !important;
+  box-shadow: 0 4px 6px rgba(62, 45, 35, 0.2) !important;
+  transition: transform 0.2s ease, background-color 0.2s ease !important;
+}
+
+#header .btn-primary:hover {
+  background-color: #B57E5F !important;
+  transform: translateY(-1px) !important;
+}
+
+/* 7. Eliminar cualquier rastro de filtros o capas oscuras del template anterior */
+#header::before, 
+#header::after {
+  display: none !important;
 }
