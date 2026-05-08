@@ -1,0 +1,40 @@
+<script>
+  // Inicializar el carrito desde el almacenamiento del navegador
+  let carrito = JSON.parse(localStorage.getItem('ritohouse_cart')) || [];
+
+  // Función para agregar productos
+  window.agregarAlCarrito = (nombre, precio) => {
+    carrito.push({ nombre, precio });
+    localStorage.setItem('ritohouse_cart', JSON.stringify(carrito));
+    actualizarContador();
+    alert(`${nombre} añadido al carrito`);
+  };
+
+  // Actualiza el número en el icono de la bolsa
+  function actualizarContador() {
+    const contador = document.getElementById('cart-count');
+    if (contador) contador.innerText = carrito.length;
+  }
+
+  // Generar el mensaje de WhatsApp
+  window.enviarPedidoWhatsApp = () => {
+    if (carrito.length === 0) return alert("El carrito está vacío");
+
+    let mensaje = "Hola RitoHouse! Me gustaría realizar el siguiente pedido:%0A%0A";
+    let total = 0;
+
+    carrito.forEach((item, index) => {
+      mensaje += `${index + 1}. ${item.nombre} - $${item.precio}%0A`;
+      total += parseInt(item.precio);
+    });
+
+    mensaje += `%0A*Total estimado: $${total}*%0A%0A¿Me confirman disponibilidad y pasos para el pago?`;
+    
+    const whatsappUrl = `https://wa.me/tu_numero?text=${mensaje}`;
+    window.open(whatsappUrl, '_blank');
+    
+    // Opcional: Limpiar carrito tras enviar
+    // carrito = [];
+    // localStorage.removeItem('ritohouse_cart');
+  };
+</script>
