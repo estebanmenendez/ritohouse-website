@@ -3,7 +3,7 @@ import { getPermalink } from './utils/permalinks';
 export const headerData = {
   links: [
     { text: 'Inicio', href: '/' },
-    { text: 'Nuestros Boxes', href: '/#productos' },
+    { text: 'Tienda de Ritual', href: '/tienda' }, // Enlace a la nueva página
     { text: 'La Intención', href: '/#historia' },
     { text: 'Contacto', href: '/#contacto' },
   ],
