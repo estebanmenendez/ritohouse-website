@@ -49,16 +49,16 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 
 <header
   class:list={[
-    { sticky: isSticky, relative: !isSticky, dark: true },
-    'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out bg-black',
+    { sticky: isSticky, relative: !isSticky },
+    'top-0 z-40 flex-none mx-auto w-full border-b border-[#3D2B1F]/10 transition-all ease-in-out bg-[#F2E8DF]',
   ]}
   {...isSticky ? { 'data-aw-sticky-header': true } : {}}
   id={id}
 >
-  <div class="absolute inset-0 bg-black"></div>
+  <div class="absolute inset-0 bg-[#F2E8DF]"></div>
   <div
     class:list={[
-      'relative text-default py-3 px-3 md:px-6 mx-auto w-full',
+      'relative text-[#3D2B1F] py-3 px-3 md:px-6 mx-auto w-full',
       {
         'md:flex md:justify-between': position !== 'center',
         'md:grid md:grid-cols-3 md:items-center': position === 'center',
@@ -75,11 +75,11 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
       </div>
     </div>
     <nav
-      class="items-center w-full md:w-auto hidden md:flex md:mx-5 text-default overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center"
+      class="items-center w-full md:w-auto hidden md:flex md:mx-5 text-[#3D2B1F] overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center"
       aria-label="Main navigation"
     >
       <ul
-        class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center"
+        class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-bold md:justify-center"
       >
         {
           links.map(({ text, href, links: subLinks }) => {
@@ -92,19 +92,19 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                   <>
                     <button
                       type="button"
-                      class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap"
+                      class="hover:text-[#B57E5F] px-4 py-3 flex items-center whitespace-nowrap"
                     >
                       {text}{' '}
                       <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
                     </button>
-                    <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-black rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-black md:min-w-[200px] drop-shadow-xl border border-[#d4af3733]">
+                    <ul class="dropdown-menu md:backdrop-blur-md rounded md:absolute pl-4 md:pl-0 md:hidden font-medium bg-[#F2E8DF] md:min-w-[200px] drop-shadow-xl border border-[#3D2B1F]/10">
                       {subLinks.map(({ text: text2, href: href2 }) => {
                         const normalizedHref2 = href2 ? `/${trimSlash(href2)}` : '';
                         return (
                           <li>
                             <a
                               class:list={[
-                                'first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap',
+                                'first:rounded-t last:rounded-b md:hover:bg-[#EAE0D5] hover:text-[#B57E5F] py-2 px-5 block whitespace-no-wrap',
                                 { 'menu-active': normalizedHref2 === currentPath },
                               ]}
                               href={href2}
@@ -119,7 +119,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                 ) : (
                   <a
                     class:list={[
-                      'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap transition-colors duration-200',
+                      'hover:text-[#B57E5F] px-4 py-3 flex items-center whitespace-nowrap transition-colors duration-200',
                       { 'menu-active': isActive },
                     ]}
                     href={href}
@@ -141,12 +141,10 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     >
       <div class="items-center flex justify-between w-full md:w-auto">
         <div class="flex">
-          {/* BOTÓN ELIMINADO */}
-          {/* {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 md:w-5 md:h-5 md:inline-block" />} */}
           {
             showRssFeed && (
               <a
-                class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                class="text-[#3D2B1F] hover:bg-[#EAE0D5] rounded-lg text-sm p-2.5 inline-flex items-center"
                 aria-label="RSS Feed"
                 href={getAsset('/rss.xml')}
               >
@@ -159,7 +157,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
           actions?.length ? (
             <span class="ml-4 rtl:ml-0 rtl:mr-4">
               {actions.map((btnProps) => (
-                <Button {...btnProps} class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm w-auto" />
+                <Button {...btnProps} class="ml-2 py-2.5 px-5.5 md:px-6 font-bold shadow-md text-sm w-auto rounded-full bg-[#3D2B1F] text-[#F2E8DF] hover:bg-[#B57E5F]" />
               ))}
             </span>
           ) : (
@@ -172,25 +170,25 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 </header>
 
 <style is:global>
-  /* 1. SELECCIÓN DE TEXTO */
+  /* 1. SELECCIÓN DE TEXTO RÚSTICA */
   ::selection {
-    background-color: #d4af37; 
-    color: #000000; 
+    background-color: #B57E5F; 
+    color: #ffffff; 
   }
 
-  /* 2. MENÚ ACTIVO DORADO */
+  /* 2. MENÚ ACTIVO RITOHOUSE */
   .menu-active, 
   [data-aw-active-link],
   .aw-link-active {
-    color: #d4af37 !important;
-    font-weight: 700 !important;
+    color: #B57E5F !important;
+    font-weight: 800 !important;
+    border-bottom: 2px solid #B57E5F;
   }
 
-  /* 3. ARREGLO DE NÚMEROS EN CIRCUNFERENCIAS (NUESTROS VALORES) */
-  /* Forzamos que el texto dentro de los círculos sea negro para que se vea sobre el blanco */
-  .rounded-full span, 
-  .rounded-full div,
-  [class*="rounded-full"] {
-    color: #000000 !important;
+  /* 3. LIMPIEZA DE COLORES DE BOTONES */
+  #header .btn-primary {
+    background-color: #3D2B1F !important;
+    color: #F2E8DF !important;
+    border: none !important;
   }
 </style>
