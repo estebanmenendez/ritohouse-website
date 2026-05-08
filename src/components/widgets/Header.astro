@@ -84,7 +84,10 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
         {
           links.map(({ text, href, links: subLinks }) => {
             const normalizedHref = href ? `/${trimSlash(href)}` : '';
-            const isActive = normalizedHref === currentPath || (normalizedHref !== '/' && currentPath.startsWith(normalizedHref));
+            
+            // CORRECCIÓN: Usamos igualdad estricta para evitar que /tienda se active estando en /tienda-general
+            // Solo permitimos el comportamiento de "sub-ruta" si no es una de las tiendas principales
+            const isActive = normalizedHref === currentPath;
 
             return (
               <li class={subLinks?.length ? 'dropdown' : ''}>
@@ -176,7 +179,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     color: #ffffff; 
   }
 
-  /* 2. MENÚ ACTIVO RITOHOUSE */
+  /* 2. MENÚ ACTIVO RITOHOUSE - Limpieza de estados duplicados */
   .menu-active, 
   [data-aw-active-link],
   .aw-link-active {
