@@ -6,122 +6,143 @@ const metadata = {
   title: 'Tienda de Rituales — RitoHouse',
 };
 
-// Estructura de productos
 const productos = [
+  // 1. ESENCIALES (Iniciación y limpieza básica)
   {
     id: 'e1',
     categoria: 'esenciales',
     nombre: 'Box Inicio Sagrado',
-    descripcion: 'Lo fundamental para tu primer ritual de limpieza.',
+    descripcion: 'Lo fundamental para tu primer ritual de limpieza energética.',
     precio: '850',
-    detalles: ['Pieza de yeso base', 'Vela blanca', '3 Sahumerios'],
   },
+  {
+    id: 'e2',
+    categoria: 'esenciales',
+    nombre: 'Box Purificación',
+    descripcion: 'Ideal para limpiar nuevos espacios y renovar el aire del hogar.',
+    precio: '920',
+  },
+  {
+    id: 'e3',
+    categoria: 'esenciales',
+    nombre: 'Box Calma Interior',
+    descripcion: 'Enfocado en la relajación diaria y el descenso del estrés.',
+    precio: '880',
+  },
+  {
+    id: 'e4',
+    categoria: 'esenciales',
+    nombre: 'Box Intención Lunar',
+    descripcion: 'Set básico para conectar con las fases de la luna.',
+    precio: '950',
+  },
+
+  // 2. EXPANSIÓN (Profundización y conexión)
   {
     id: 'ex1',
     categoria: 'expansion',
     nombre: 'Box Expansión Áurea',
-    descripcion: 'Conexión profunda con elementos de la naturaleza.',
+    descripcion: 'Conexión profunda con elementos de la naturaleza y decretos.',
     precio: '1450',
-    detalles: ['Set de 3 piezas', 'Botánica seca', 'Tarjetas de decreto'],
   },
+  {
+    id: 'ex2',
+    categoria: 'expansion',
+    nombre: 'Box Abundancia Flor',
+    descripcion: 'Atrae la prosperidad con botánica seca y cristales seleccionados.',
+    precio: '1600',
+  },
+  {
+    id: 'ex3',
+    categoria: 'expansion',
+    nombre: 'Box Protección Hogar',
+    descripcion: 'Crea un escudo energético en las entradas de tu casa.',
+    precio: '1550',
+  },
+  {
+    id: 'ex4',
+    categoria: 'expansion',
+    nombre: 'Box Armonía Familiar',
+    descripcion: 'Ritual diseñado para equilibrar la convivencia en espacios comunes.',
+    precio: '1680',
+  },
+
+  // 3. TRASCENDENCIA (Maestría y Alquimia)
   {
     id: 't1',
     categoria: 'trascendencia',
     nombre: 'Box Trascendencia Total',
-    descripcion: 'La experiencia de alquimia definitiva y profesional.',
+    descripcion: 'La experiencia de alquimia definitiva con piezas de diseño.',
     precio: '2800',
-    detalles: ['Piezas Premium Yeso/Cemento', 'Papelería especial', 'Kit Pro'],
+  },
+  {
+    id: 't2',
+    categoria: 'trascendencia',
+    nombre: 'Box Alquimia Ancestral',
+    descripcion: 'Kit profesional con elementos de sahumado antiguo y resinas.',
+    precio: '3100',
+  },
+  {
+    id: 't3',
+    categoria: 'trascendencia',
+    nombre: 'Box Ritual de Vida',
+    descripcion: 'Un viaje completo por los 4 elementos para momentos de cambio.',
+    precio: '2950',
+  },
+  {
+    id: 't4',
+    categoria: 'trascendencia',
+    nombre: 'Box Maestro de Luz',
+    descripcion: 'Set premium con nuestras piezas de cemento más exclusivas.',
+    precio: '3400',
   }
 ];
 ---
 
 <Layout metadata={metadata}>
-  <section class="bg-[#F2E8DF] min-h-screen py-20">
+  <section class="bg-[#F2E8DF] min-h-screen py-20 text-[#3D2B1F]">
     <div class="max-w-7xl mx-auto px-4">
       
-      <!-- TÍTULO Y FILTROS -->
       <div class="text-center mb-16">
-        <h1 class="text-5xl font-serif font-bold text-[#3D2B1F] mb-4 uppercase">Catálogo de Rituales</h1>
-        <p class="text-[#55463C] italic mb-8">Selecciona tu intención y arma tu pedido personalizado</p>
+        <h1 class="text-5xl font-serif font-bold mb-4 uppercase tracking-tighter">Catálogo de Rituales</h1>
+        <p class="italic text-[#55463C] text-lg">Selecciona tu intención y arma tu pedido personalizado</p>
         
-        <div class="flex flex-wrap justify-center gap-4 mb-12">
-          <a href="#esenciales" class="px-6 py-2 rounded-full border border-[#B57E5F] text-[#3D2B1F] font-bold hover:bg-[#B57E5F] hover:text-white transition-all text-sm">ESENCIALES</a>
-          <a href="#expansion" class="px-6 py-2 rounded-full border border-[#B57E5F] text-[#3D2B1F] font-bold hover:bg-[#B57E5F] hover:text-white transition-all text-sm">EXPANSIÓN</a>
-          <a href="#trascendencia" class="px-6 py-2 rounded-full border border-[#B57E5F] text-[#3D2B1F] font-bold hover:bg-[#B57E5F] hover:text-white transition-all text-sm">TRASCENDENCIA</a>
+        <div class="flex flex-wrap justify-center gap-4 mt-8">
+          <a href="#esenciales" class="px-6 py-2 rounded-full border border-[#B57E5F] font-bold hover:bg-[#B57E5F] hover:text-white transition-all text-sm">ESENCIALES</a>
+          <a href="#expansion" class="px-6 py-2 rounded-full border border-[#B57E5F] font-bold hover:bg-[#B57E5F] hover:text-white transition-all text-sm">EXPANSIÓN</a>
+          <a href="#trascendencia" class="px-6 py-2 rounded-full border border-[#B57E5F] font-bold hover:bg-[#B57E5F] hover:text-white transition-all text-sm">TRASCENDENCIA</a>
         </div>
       </div>
 
-      <!-- SECCIONES POR CATEGORÍA -->
-      
-      <!-- CATEGORÍA: ESENCIALES -->
-      <div id="esenciales" class="mb-20 scroll-mt-24">
-        <h2 class="text-3xl font-serif font-bold text-[#B57E5F] border-b border-[#B57E5F]/20 pb-2 mb-8 uppercase tracking-widest text-center md:text-left">1. Rituales Esenciales</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-          {productos.filter(p => p.categoria === 'esenciales').map(p => (
-            <div class="bg-white/30 rounded-2xl border border-[#B57E5F]/10 p-6 flex flex-col group hover:shadow-xl transition-all">
-              <div class="h-48 bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center italic text-[#B57E5F]/30">Foto Producto</div>
-              <h3 class="text-xl font-bold text-[#3D2B1F] mb-2">{p.nombre}</h3>
-              <p class="text-sm text-[#55463C] mb-4 flex-grow">{p.descripcion}</p>
-              <div class="mb-6">
-                <span class="text-2xl font-serif font-bold text-[#3D2B1F]">${p.precio}</span>
+      {/* RENDERIZADO DE CATEGORÍAS */}
+      {['esenciales', 'expansion', 'trascendencia'].map((cat, index) => (
+        <div id={cat} class="mb-24 scroll-mt-24">
+          <h2 class="text-3xl font-serif font-bold text-[#B57E5F] border-b border-[#B57E5F]/20 pb-2 mb-10 uppercase tracking-widest text-center md:text-left">
+            {index + 1}. Rituales de {cat.charAt(0).toUpperCase() + cat.slice(1)}
+          </h2>
+          
+          <div class="grid md:grid-cols-4 gap-6">
+            {productos.filter(p => p.categoria === cat).map(p => (
+              <div class="bg-white/30 rounded-2xl border border-[#B57E5F]/10 p-5 flex flex-col group hover:shadow-xl transition-all">
+                <div class="aspect-video bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center italic text-[#B57E5F]/30 overflow-hidden">
+                  <span class="group-hover:scale-110 transition-transform duration-500 text-sm">Foto {p.nombre}</span>
+                </div>
+                <h3 class="text-lg font-bold mb-2 leading-tight">{p.nombre}</h3>
+                <p class="text-xs text-[#55463C] mb-4 flex-grow italic">{p.descripcion}</p>
+                <div class="mb-5">
+                  <span class="text-xl font-serif font-bold">${p.precio}</span>
+                </div>
+                <button 
+                  onclick={`agregarAlCarrito('${p.nombre}', '${p.precio}')`}
+                  class="bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-xl font-bold hover:bg-[#B57E5F] transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md"
+                >
+                  <Icon name="tabler:shopping-bag" class="w-5 h-5" /> Agregar
+                </button>
               </div>
-              <button 
-                onclick={`agregarAlCarrito('${p.nombre}', '${p.precio}')`}
-                class="bg-[#3D2B1F] text-[#F2E8DF] text-center py-3 rounded-xl font-bold hover:bg-[#B57E5F] transition-all flex items-center justify-center gap-2 active:scale-95"
-              >
-                <Icon name="tabler:shopping-bag" class="w-5 h-5" /> Agregar al Carrito
-              </button>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-
-      <!-- CATEGORÍA: EXPANSIÓN -->
-      <div id="expansion" class="mb-20 scroll-mt-24">
-        <h2 class="text-3xl font-serif font-bold text-[#B57E5F] border-b border-[#B57E5F]/20 pb-2 mb-8 uppercase tracking-widest text-center md:text-left">2. Rituales Expansión</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-          {productos.filter(p => p.categoria === 'expansion').map(p => (
-            <div class="bg-white/40 rounded-2xl border-2 border-[#B57E5F]/30 p-6 flex flex-col group shadow-md">
-              <div class="h-48 bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center italic text-[#B57E5F]/30">Foto Producto</div>
-              <h3 class="text-xl font-bold text-[#3D2B1F] mb-2">{p.nombre}</h3>
-              <p class="text-sm text-[#55463C] mb-4 flex-grow">{p.descripcion}</p>
-              <div class="mb-6">
-                <span class="text-2xl font-serif font-bold text-[#3D2B1F]">${p.precio}</span>
-              </div>
-              <button 
-                onclick={`agregarAlCarrito('${p.nombre}', '${p.precio}')`}
-                class="bg-[#B57E5F] text-white text-center py-3 rounded-xl font-bold hover:bg-[#3D2B1F] transition-all flex items-center justify-center gap-2 shadow-lg active:scale-95"
-              >
-                <Icon name="tabler:shopping-bag" class="w-5 h-5" /> Agregar al Carrito
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <!-- CATEGORÍA: TRASCENDENCIA -->
-      <div id="trascendencia" class="mb-20 scroll-mt-24">
-        <h2 class="text-3xl font-serif font-bold text-[#B57E5F] border-b border-[#B57E5F]/20 pb-2 mb-8 uppercase tracking-widest text-center md:text-left">3. Rituales Trascendencia</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-          {productos.filter(p => p.categoria === 'trascendencia').map(p => (
-            <div class="bg-white/30 rounded-2xl border border-[#B57E5F]/10 p-6 flex flex-col group hover:shadow-xl transition-all">
-              <div class="h-48 bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center italic text-[#B57E5F]/30">Foto Producto</div>
-              <h3 class="text-xl font-bold text-[#3D2B1F] mb-2">{p.nombre}</h3>
-              <p class="text-sm text-[#55463C] mb-4 flex-grow">{p.descripcion}</p>
-              <div class="mb-6">
-                <span class="text-2xl font-serif font-bold text-[#3D2B1F]">${p.precio}</span>
-              </div>
-              <button 
-                onclick={`agregarAlCarrito('${p.nombre}', '${p.precio}')`}
-                class="bg-[#3D2B1F] text-[#F2E8DF] text-center py-3 rounded-xl font-bold hover:bg-[#B57E5F] transition-all flex items-center justify-center gap-2 active:scale-95"
-              >
-                <Icon name="tabler:shopping-bag" class="w-5 h-5" /> Agregar al Carrito
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
-
+      ))}
     </div>
   </section>
 </Layout>
