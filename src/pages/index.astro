@@ -2,22 +2,20 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import Features2 from '~/components/widgets/Features2.astro';
 import { Icon } from 'astro-icon/components';
 
-// Mantenemos los nombres de archivo originales para evitar el error de build
+// Imágenes originales mantenidas para estabilidad del build
 import img1 from '~/assets/images/img1.png';
 import img2 from '~/assets/images/img2.png';
 
 const metadata = {
-  title: 'Ritohouse — Rituales que transforman hogares',
+  title: 'RitoHouse — Rituales que transforman hogares',
   ignoreTitleTemplate: true,
 };
 
 const footerData = {
   secondaryLinks: [
-    { text: 'Diseñado por Steb · Ritohouse © 2026', href: '#' },
+    { text: 'Diseñado por Steb · RitoHouse © 2026', href: '#' },
   ],
 };
 ---
@@ -25,27 +23,27 @@ const footerData = {
 <Layout metadata={metadata} footerData={footerData}>
 
   <!-- SECCIÓN HERO -->
-  <section class="relative h-screen flex items-center justify-center bg-[#EAE5DE] overflow-hidden">
+  <section class="relative h-screen flex items-center justify-center bg-[#F2E8DF] overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <img src={img1.src} alt="Ritual Ritohouse" class="w-full h-full object-cover opacity-40" />
-      <div class="absolute inset-0 bg-gradient-to-b from-[#EAE5DE]/20 via-transparent to-[#EAE5DE]"></div>
+      <img src={img1.src} alt="Ritual RitoHouse" class="w-full h-full object-cover opacity-40" />
+      <div class="absolute inset-0 bg-gradient-to-b from-[#F2E8DF]/20 via-transparent to-[#F2E8DF]"></div>
     </div>
     
     <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
-      <h1 class="text-5xl md:text-7xl font-serif font-bold text-[#5C544E] mb-6 uppercase tracking-tight" style="text-shadow: 1px 1px 2px rgba(255,255,255,0.5);">
-        RITOHOUSE <br /> <span class="text-[#D4A373] text-4xl md:text-5xl">Rituales con Intención</span>
+      <h1 class="text-5xl md:text-8xl font-serif font-bold text-[#3D2B1F] mb-6 uppercase tracking-tighter">
+        RitoHouse <br /> 
+        <span class="text-[#B57E5F] text-4xl md:text-5xl font-light italic block mt-2">Rituales con Intención</span>
       </h1>
-      <p class="text-xl md:text-2xl text-[#5C544E] mb-10 font-light italic">
+      <p class="text-xl md:text-2xl text-[#3D2B1F] mb-10 font-medium">
         Piezas artesanales en yeso y cemento diseñadas para armonizar tu hogar.
       </p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#productos" class="bg-[#5C544E] text-white font-semibold py-4 px-10 rounded-full no-underline tracking-widest hover:bg-[#D4A373] transition-colors shadow-lg">Ver los Boxes</a>
-        <a href="#historia" class="text-[#5C544E] font-semibold py-4 px-10 no-underline hover:text-[#D4A373]">Nuestra Filosofía ↓</a>
+        <a href="#productos" class="bg-[#3D2B1F] text-[#F2E8DF] font-bold py-4 px-10 rounded-full no-underline tracking-widest hover:bg-[#B57E5F] transition-all shadow-lg">Ver los Boxes</a>
       </div>
     </div>
   </section>
 
-  <!-- SECCIÓN HISTORIA -->
+  <!-- SECCIÓN HISTORIA (REDISEÑADA) -->
   <Content
     id="historia"
     isReversed
@@ -53,37 +51,44 @@ const footerData = {
     title="La Magia de lo Hecho a Mano"
     items={[
       {
-        title: 'Piezas en Yeso y Cemento',
-        description: 'Cada figura y bandeja es vertida a mano, cuidando la textura y la pureza del material para crear objetos únicos.',
+        title: 'Alquimia en Yeso y Cemento',
+        description: 'Cada pieza es vertida individualmente, respetando la textura orgánica del material para crear objetos con alma.',
         icon: 'tabler:artboard', 
       },
       {
-        title: 'Velas y Aromas',
-        description: 'Velas aromáticas e inciensos seleccionados para limpiar ambientes y preparar el espacio para tu ritual personal.',
+        title: 'Aromaterapia Sagrada',
+        description: 'Velas y sahumerios seleccionados para purificar la energía y preparar tu santuario personal.',
         icon: 'tabler:flame',
       },
       {
-        title: 'Intención y Decretos',
-        description: 'Nuestros boxes incluyen tarjetas con decretos asociados a las piezas en yeso para que los usuarios les den su propia intención.',
+        title: 'El Poder del Decreto',
+        description: 'Nuestros rituales se activan con tu voz. Cada box incluye la guía necesaria para manifestar tu intención.',
         icon: 'tabler:feather',
       },
     ]}
     image={{
       src: img2,
-      alt: 'Detalle de un box de ritual Ritohouse',
+      alt: 'Experiencia RitoHouse',
     }}
   >
     <Fragment slot="content">
-      <div class="text-[#5C544E]">
+      <div class="text-[#3D2B1F] leading-relaxed">
+        <p class="mb-6 text-lg font-medium">
+          En <strong>RitoHouse</strong>, entendemos que el hogar es el reflejo del espíritu. No solo creamos objetos; diseñamos puentes hacia la paz interior a través de piezas artesanales y elementos sagrados.
+        </p>
+        
+        <p class="mb-6 border-l-4 border-[#B57E5F] pl-4 italic text-[#55463C]">
+          "Nuestra misión es transformar lo cotidiano en un ritual, devolviendo el propósito a cada espacio que habitas."
+        </p>
+
         <p class="mb-4">
-          <strong>Ritohouse</strong> nace de la unión de la creatividad y la espiritualidad en el hogar. Junto a mi señora, creamos <strong>boxes de ritual</strong> que incluyen artículos en yeso, velas, inciensos y palo santo.
+          Este proyecto nace de una búsqueda compartida por crear experiencias que trasciendan lo decorativo. Al integrar nuestros boxes en tu vida, participas de un proceso de manifestación donde la belleza estética se une a la fuerza de tu voluntad.
         </p>
-        <p class="mb-4">
-          Cada box está acompañado de tarjetas y decretos que los usuarios deben leer para darle la intención al producto y que esta se manifieste en sus vidas.
-        </p>
-        <p>
-          Ubicados en el litoral uruguayo, cada entrega es un pedazo de nuestra dedicación artesanal, empaquetado con materiales naturales.
-        </p>
+        
+        <div class="mt-8 flex items-center gap-2 text-[#B57E5F] font-bold uppercase text-sm tracking-widest">
+          <Icon name="tabler:heart-handshake" class="w-5 h-5" />
+          <span>Compromiso Artesanal · Paysandú, Uruguay</span>
+        </div>
       </div>
     </Fragment>
   </Content>
@@ -94,40 +99,40 @@ const footerData = {
     tagline="Nuestra Colección"
     title="Elementos para tu Ritual"
     items={[
-      { title: 'Boxes Completos', description: 'Kits listos con todo lo necesario para intencionar.', icon: 'tabler:package' },
-      { title: 'Piezas en Yeso', description: 'Portaveleras, bandejas y figuras decorativas artesanalmente producidas.', icon: 'tabler:flower' },
-      { title: 'Aromaterapia', description: 'Inciensos, palo santo y velas con aromas naturales.', icon: 'tabler:wind' },
-      { title: 'Jabones Artesanales', description: 'Limpieza física y energética con ingredientes naturales.', icon: 'tabler:droplet' },
-      { title: 'Decretos', description: 'Tarjetas con afirmaciones para cada tipo de box y ritual.', icon: 'tabler:notes' },
-      { title: 'Adornos Rústicos', description: 'Detalles en cemento y madera para espacios únicos.', icon: 'tabler:home-heart' },
+      { title: 'Boxes de Intención', description: 'Kits curados para propósitos específicos de bienestar.', icon: 'tabler:package' },
+      { title: 'Esculturas Funcionales', description: 'Portaveleras y bandejas de diseño artesanal único.', icon: 'tabler:flower' },
+      { title: 'Botánica Sagrada', description: 'Inciensos y palo santo de recolección consciente.', icon: 'tabler:wind' },
+      { title: 'Higiene Consciente', description: 'Jabones naturales para la limpieza física y energética.', icon: 'tabler:droplet' },
+      { title: 'Afirmaciones', description: 'Tarjetas con decretos para sellar cada uno de tus rituales.', icon: 'tabler:notes' },
+      { title: 'Diseño Rústico', description: 'Adornos contemporáneos en materiales nobles.', icon: 'tabler:home-heart' },
     ]}
   />
 
   <!-- SECCIÓN CONTACTO -->
-  <section id="contacto" class="relative py-16 bg-[#EAE5DE] border-t border-[#D4A373]/20">
+  <section id="contacto" class="relative py-16 bg-[#F2E8DF] border-t border-[#B57E5F]/20">
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
       <div>
-        <h2 class="text-3xl md:text-4xl font-serif font-bold text-[#5C544E] uppercase tracking-widest mb-4">¡Conectemos!</h2>
-        <p class="text-[#5C544E]/80 text-lg mb-8">
-          ¿Tienes dudas sobre cómo realizar tu ritual o quieres un box personalizado? Escríbenos y te asesoraremos.
+        <h2 class="text-3xl md:text-4xl font-serif font-bold text-[#3D2B1F] uppercase tracking-widest mb-4">Conectemos</h2>
+        <p class="text-[#55463C] text-lg mb-8">
+          Permítenos acompañarte en la creación de tu próximo ritual. Escríbenos para asesoramiento personalizado.
         </p>
         <div class="space-y-6">
           <div class="flex items-start">
-            <Icon name="tabler:brand-instagram" class="w-6 h-6 text-[#D4A373] mr-4" />
+            <Icon name="tabler:brand-instagram" class="w-6 h-6 text-[#B57E5F] mr-4" />
             <div>
-              <h4 class="text-[#5C544E] font-bold">Instagram</h4>
-              <p class="text-[#5C544E]/70">@ritohousepdu</p>
+              <h4 class="text-[#3D2B1F] font-bold">Comunidad</h4>
+              <p class="text-[#55463C]">@ritohousepdu</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="bg-white/50 p-8 rounded-2xl border border-[#D4A373]/20 shadow-sm">
+      <div class="bg-white/40 p-8 rounded-2xl border border-[#B57E5F]/10 shadow-sm backdrop-blur-sm">
         <form action="https://formspree.io/f/tu-id" method="POST" class="space-y-4">
-          <input type="text" name="name" placeholder="Tu nombre" required class="w-full bg-[#EAE5DE]/30 border border-[#D4A373]/30 rounded-lg px-4 py-3" />
-          <input type="email" name="email" placeholder="Tu email" required class="w-full bg-[#EAE5DE]/30 border border-[#D4A373]/30 rounded-lg px-4 py-3" />
-          <textarea name="message" placeholder="¿En qué ritual estás pensando?" rows="4" required class="w-full bg-[#EAE5DE]/30 border border-[#D4A373]/30 rounded-lg px-4 py-3"></textarea>
-          <button type="submit" class="w-full bg-[#D4A373] text-white font-bold py-3 rounded-lg uppercase tracking-widest hover:bg-[#5C544E] transition-all">
+          <input type="text" name="name" placeholder="Nombre completo" required class="w-full bg-[#F2E8DF]/50 border border-[#B57E5F]/20 rounded-lg px-4 py-3 focus:border-[#B57E5F] outline-none" />
+          <input type="email" name="email" placeholder="Correo electrónico" required class="w-full bg-[#F2E8DF]/50 border border-[#B57E5F]/20 rounded-lg px-4 py-3 focus:border-[#B57E5F] outline-none" />
+          <textarea name="message" placeholder="¿Cuál es tu intención hoy?" rows="4" required class="w-full bg-[#F2E8DF]/50 border border-[#B57E5F]/20 rounded-lg px-4 py-3 focus:border-[#B57E5F] outline-none"></textarea>
+          <button type="submit" class="w-full bg-[#3D2B1F] text-[#F2E8DF] font-bold py-3 rounded-lg uppercase tracking-widest hover:bg-[#B57E5F] transition-all">
             Enviar Mensaje
           </button>
         </form>
