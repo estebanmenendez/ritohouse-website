@@ -7,6 +7,9 @@ import { Icon } from 'astro-icon/components';
 // Imágenes originales mantenidas para estabilidad del build
 import img1 from '~/assets/images/img1.png';
 import img2 from '~/assets/images/img2.png';
+import fotoEsencial from '~/assets/images/box-esencial.png';
+import fotoExpansion from '~/assets/images/box-expansion.png';
+import fotoTrascendencia from '~/assets/images/box-trascendencia.png';
 
 const metadata = {
   title: 'RitoHouse — Rituales que transforman hogares',
@@ -105,44 +108,53 @@ const footerData = {
       <div class="grid md:grid-cols-3 gap-10">
         
         <!-- 1. RITUALES ESENCIALES -->
-        <div class="flex flex-col bg-white/20 rounded-3xl border border-[#B57E5F]/10 overflow-hidden hover:shadow-xl transition-all group">
-          <div class="h-72 overflow-hidden bg-slate-200">
-            <div class="w-full h-full flex items-center justify-center text-[#B57E5F]/30 italic bg-[#EAE5DE]">Imagen Esencial</div>
-          </div>
-          <div class="p-8 flex flex-col flex-grow">
-            <h3 class="text-2xl font-serif font-bold text-[#3D2B1F] mb-3">Rituales Esenciales</h3>
-            <p class="text-[#55463C] text-sm mb-6 flex-grow">La base fundamental para iniciar tu camino místico.</p>
-            <a href="/tienda#esenciales" class="w-full text-center bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-full font-bold hover:bg-[#B57E5F] transition-all">Ver Colección Esencial</a>
-          </div>
-        </div>
+<div class="flex flex-col bg-white/20 rounded-3xl border border-[#B57E5F]/10 overflow-hidden hover:shadow-xl transition-all group">
+  <div class="h-72 overflow-hidden bg-[#EAE5DE]">
+    <img 
+      src={fotoEsencial.src} 
+      alt="Ritual Esencial RitoHouse" 
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+    />
+  </div>
+  <div class="p-8 flex flex-col flex-grow">
+    <h3 class="text-2xl font-serif font-bold text-[#3D2B1F] mb-3">Rituales Esenciales</h3>
+    <p class="text-[#55463C] text-sm mb-6 flex-grow">La base fundamental para iniciar tu camino místico.</p>
+    <a href="/tienda#esenciales" class="w-full text-center bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-full font-bold hover:bg-[#B57E5F] transition-all">Ver Colección Esencial</a>
+  </div>
+</div>
 
-        <!-- 2. RITUALES EXPANSIÓN -->
-        <div class="flex flex-col bg-white/40 rounded-3xl border-2 border-[#B57E5F]/30 overflow-hidden shadow-2xl relative scale-105 z-10 group text-center">
-          <div class="absolute top-4 right-4 bg-[#B57E5F] text-[#F2E8DF] text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">Recomendado</div>
-          <div class="h-72 overflow-hidden bg-slate-200">
-            <div class="w-full h-full flex items-center justify-center text-[#B57E5F]/30 italic bg-[#EAE5DE]">Imagen Expansión</div>
-          </div>
-          <div class="p-8 flex flex-col flex-grow">
-            <h3 class="text-2xl font-serif font-bold text-[#3D2B1F] mb-3">Rituales Expansión</h3>
-            <p class="text-[#55463C] text-sm mb-6 flex-grow">Avanza en tu conexión con botánica y decretos profundos.</p>
-            <a href="/tienda#expansion" class="w-full text-center bg-[#B57E5F] text-white py-3 rounded-full font-bold hover:bg-[#3D2B1F] transition-all shadow-lg">Ver Colección Expansión</a>
-          </div>
-        </div>
+<!-- 2. RITUALES EXPANSIÓN -->
+<div class="flex flex-col bg-white/40 rounded-3xl border-2 border-[#B57E5F]/30 overflow-hidden shadow-2xl relative scale-105 z-10 group text-center">
+  <div class="absolute top-4 right-4 bg-[#B57E5F] text-[#F2E8DF] text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">Recomendado</div>
+  <div class="h-72 overflow-hidden bg-[#EAE5DE]">
+    <img 
+      src={fotoExpansion.src} 
+      alt="Ritual Expansión RitoHouse" 
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+    />
+  </div>
+  <div class="p-8 flex flex-col flex-grow">
+    <h3 class="text-2xl font-serif font-bold text-[#3D2B1F] mb-3">Rituales Expansión</h3>
+    <p class="text-[#55463C] text-sm mb-6 flex-grow">Avanza en tu conexión con botánica y decretos profundos.</p>
+    <a href="/tienda#expansion" class="w-full text-center bg-[#B57E5F] text-white py-3 rounded-full font-bold hover:bg-[#3D2B1F] transition-all shadow-lg">Ver Colección Expansión</a>
+  </div>
+</div>
 
-        <!-- 3. RITUALES TRASCENDENCIA -->
-        <div class="flex flex-col bg-white/20 rounded-3xl border border-[#B57E5F]/10 overflow-hidden hover:shadow-xl transition-all group">
-          <div class="h-72 overflow-hidden bg-slate-200">
-            <div class="w-full h-full flex items-center justify-center text-[#B57E5F]/30 italic bg-[#EAE5DE]">Imagen Trascendencia</div>
-          </div>
-          <div class="p-8 flex flex-col flex-grow">
-            <h3 class="text-2xl font-serif font-bold text-[#3D2B1F] mb-3">Rituales Trascendencia</h3>
-            <p class="text-[#55463C] text-sm mb-6 flex-grow">La experiencia definitiva con calidad premium.</p>
-            <a href="/tienda#trascendencia" class="w-full text-center bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-full font-bold hover:bg-[#B57E5F] transition-all">Ver Colección Premium</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
+<!-- 3. RITUALES TRASCENDENCIA -->
+<div class="flex flex-col bg-white/20 rounded-3xl border border-[#B57E5F]/10 overflow-hidden hover:shadow-xl transition-all group">
+  <div class="h-72 overflow-hidden bg-[#EAE5DE]">
+    <img 
+      src={fotoTrascendencia.src} 
+      alt="Ritual Trascendencia RitoHouse" 
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+    />
+  </div>
+  <div class="p-8 flex flex-col flex-grow">
+    <h3 class="text-2xl font-serif font-bold text-[#3D2B1F] mb-3">Rituales Trascendencia</h3>
+    <p class="text-[#55463C] text-sm mb-6 flex-grow">La experiencia definitiva con calidad premium.</p>
+    <a href="/tienda#trascendencia" class="w-full text-center bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-full font-bold hover:bg-[#B57E5F] transition-all">Ver Colección Premium</a>
+  </div>
+</div>
   </section>
 
   <!-- RESTAURACIÓN DE VALORES ORIGINALES (ELEMENTOS ESENCIALES) -->
