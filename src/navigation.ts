@@ -3,8 +3,8 @@ import { getPermalink } from './utils/permalinks';
 export const headerData = {
   links: [
     { text: 'Inicio', href: '/' },
-    { text: 'Tienda de Ritual', href: '/tienda' }, // Enlace a la nueva página
-    { text: 'La Intención', href: '/#historia' },
+    { text: 'Tienda de Ritual', href: '/tienda' },
+    { text: 'Tienda General', href: '/tienda-general' },
     { text: 'Contacto', href: '/#contacto' },
   ],
   actions: [{ text: 'WhatsApp', href: 'https://wa.me/tu_numero', variant: 'primary' }],
