@@ -2,38 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 0. BLOQUEO DE COLOR MÍSTICO (Añadir esto primero) */
+/* 0. BLOQUEO DE COLOR PERGAMINO (Efecto hoja vieja) */
 html {
-  background-color: #EAE5DE !important; /* Color Yeso/Hueso */
+  background-color: #F2E8DF !important; /* Tono lino/hoja vieja */
   color-scheme: light;
 }
 
-/* CONFIGURACIÓN DE COLORES RITOHOUSE */
+/* CONFIGURACIÓN DE COLORES RITOHOUSE PDU */
 @layer base {
   :root {
     --aw-font-sans: 'InterVariable', 'Inter', ui-sans-serif, system-ui;
-    --aw-font-serif: 'Georgia', serif; /* Añadimos serif para el toque elegante */
+    --aw-font-serif: 'Georgia', serif;
 
-    /* Marrón Ceniza/Cáñamo #5C544E -> rgb(92, 84, 78) */
-    --aw-color-primary: 92 84 78;
-    /* Tono Tierra suave #D4A373 -> rgb(212, 163, 115) */
-    --aw-color-accent: 212 163 115;
-    --aw-color-secondary: 217 210 201;
+    /* Primario: Marrón Café profundo (Para máximo contraste en textos) 
+       #3E2D23 -> rgb(62, 45, 35) */
+    --aw-color-primary: 62 45 35;
+    
+    /* Acento: Terracota suave / Mudra (Efecto rústico moderno)
+       #B57E5F -> rgb(181, 126, 95) */
+    --aw-color-accent: 181 126 95;
+    
+    /* Secundario: Arena rústica */
+    --aw-color-secondary: 215 194 175;
 
-    /* Fondo de Página: Yeso #EAE5DE -> rgb(234, 229, 222) */
-    --aw-color-bg-page: 234 229 222;
-    --aw-color-bg-page-dark: 234 229 222; /* Forzamos color claro */
+    /* Fondo de Página: Pergamino claro
+       #F2E8DF -> rgb(242, 232, 223) */
+    --aw-color-bg-page: 242 232 223;
+    --aw-color-bg-page-dark: 242 232 223;
 
-    /* Textos: Marrón oscuro para suavidad visual */
-    --aw-color-text-page: 62 56 51;
-    --aw-color-text-muted: 107 99 92;
-    --aw-color-text-heading: 92 84 78;
+    /* Textos con alto contraste para legibilidad */
+    --aw-color-text-page: 44 34 27;     /* Marrón casi negro */
+    --aw-color-text-muted: 95 78 66;    /* Marrón medio */
+    --aw-color-text-heading: 62 45 35;  /* Títulos profundos */
   }
 
-  /* Desactivamos el modo oscuro para mantener la pureza del yeso */
-  .dark {
-    --aw-color-bg-page: 234 229 222;
-    --aw-color-text-page: 62 56 51;
+  /* Desactivar modo oscuro persistente del sitio anterior */
+  .dark, [data-theme='dark'] {
+    --aw-color-bg-page: 242 232 223;
+    --aw-color-text-page: 44 34 27;
+    --aw-color-text-muted: 95 78 66;
+    --aw-color-text-heading: 62 45 35;
   }
 
   ::selection {
@@ -41,64 +49,62 @@ html {
     color: #ffffff;
   }
 
-  a {
-    @apply transition-colors duration-200;
-    color: inherit;
-    text-decoration: none;
-  }
-
-  /* SOBRESCRIBIR AZULES Y DORADOS ANTERIORES */
-  .text-primary, 
-  .text-blue-600, 
+  /* RESET DE ENLACES PARA ALTO CONTRASTE */
+  header a, 
   .aw-link-active,
   [aria-current="page"] {
-    color: rgb(var(--aw-color-primary)) !important;
+    color: #3E2D23 !important;
+    font-weight: 600;
   }
 
-  .bg-primary, 
-  .bg-accent {
-    background-color: rgb(var(--aw-color-accent)) !important;
+  header a:hover {
+    color: #B57E5F !important;
   }
 }
 
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center rounded-full border-gray-300 border bg-transparent font-medium text-center text-base transition py-2.5 px-6 ease-in duration-200;
+    @apply inline-flex items-center justify-center rounded-full border bg-transparent font-bold text-center text-base transition py-2.5 px-8 ease-in duration-200 shadow-sm;
   }
 
   .btn-primary {
-    @apply btn font-semibold bg-[#5C544E] text-white border-[#5C544E] hover:bg-[#D4A373] hover:border-[#D4A373] !important;
+    @apply btn bg-[#3E2D23] text-[#F2E8DF] border-[#3E2D23] hover:bg-[#B57E5F] hover:border-[#B57E5F] !important;
   }
 
   .btn-secondary {
-    @apply btn border-[#5C544E] text-[#5C544E] hover:bg-[#5C544E] hover:text-white;
+    @apply btn border-[#3E2D23] text-[#3E2D23] hover:bg-[#3E2D23] hover:text-[#F2E8DF];
   }
 }
 
-/* HEADER RITOHOUSE: LIMPIO Y CLARO */
+/* HEADER: ELIMINAR EL NEGRO Y LOS TEXTOS LAVADOS */
 #header {
-  @apply bg-[#EAE5DE] !important;
-  border-bottom: 1px solid rgba(146, 134, 123, 0.1);
+  @apply bg-[#F2E8DF] !important;
+  border-bottom: 1px solid rgba(62, 45, 35, 0.1);
 }
 
 #header.scroll > div:first-child {
-  background-color: rgba(234, 229, 222, 0.9) !important;
+  background-color: rgba(242, 232, 223, 0.95) !important;
   backdrop-filter: blur(8px);
 }
 
 #header.expanded nav {
-  @apply bg-[#EAE5DE] !important;
+  @apply bg-[#F2E8DF] !important;
 }
 
-/* TIPOGRAFÍA MÍSTICA */
+/* TIPOGRAFÍA MÍSTICA Y MODERNA */
 h1, h2, h3 {
   font-family: var(--aw-font-serif);
-  @apply tracking-tight;
+  @apply tracking-tighter;
 }
 
-/* FIX IMÁGENES: Fondo neutro para resaltar el yeso */
+/* FIX IMÁGENES: Sin bordes negros */
 img {
   object-fit: cover !important;
   background-color: transparent !important;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
+}
+
+/* ELIMINACIÓN DE AZULES Y DORADOS RESIDUALES */
+.bg-blue-600, .text-blue-600, .bg-primary, .text-primary {
+  @apply transition-none;
 }
