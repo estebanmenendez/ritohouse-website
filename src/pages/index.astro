@@ -15,7 +15,7 @@ const metadata = {
 
 const footerData = {
   secondaryLinks: [
-    { text: 'Diseñado por Steb · RitoHouse © 2026', href: '#' },
+    { text: 'Diseñado por EM · RitoHouse © 2026', href: '#' },
   ],
 };
 ---
@@ -43,7 +43,7 @@ const footerData = {
     </div>
   </section>
 
-  <!-- SECCIÓN HISTORIA (REDISEÑADA) -->
+  <!-- SECCIÓN HISTORIA -->
   <Content
     id="historia"
     isReversed
@@ -108,7 +108,7 @@ const footerData = {
     ]}
   />
 
-  <!-- SECCIÓN CONTACTO -->
+  <!-- SECCIÓN CONTACTO (PUNTO 1 CORREGIDO) -->
   <section id="contacto" class="relative py-16 bg-[#F2E8DF] border-t border-[#B57E5F]/20">
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
       <div>
@@ -117,12 +117,16 @@ const footerData = {
           Permítenos acompañarte en la creación de tu próximo ritual. Escríbenos para asesoramiento personalizado.
         </p>
         <div class="space-y-6">
-          <div class="flex items-start">
-            <Icon name="tabler:brand-instagram" class="w-6 h-6 text-[#B57E5F] mr-4" />
-            <div>
-              <h4 class="text-[#3D2B1F] font-bold">Comunidad</h4>
-              <p class="text-[#55463C]">@ritohousepdu</p>
-            </div>
+          <div class="flex items-center group">
+            <Icon name="tabler:brand-instagram" class="w-7 h-7 text-[#B57E5F] mr-3" />
+            <a 
+              href="https://www.instagram.com/ritohousepdu" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="text-[#3D2B1F] font-bold text-xl hover:text-[#B57E5F] transition-colors"
+            >
+              Síguenos en Instagram: @ritohousepdu
+            </a>
           </div>
         </div>
       </div>
