@@ -6,7 +6,7 @@ const metadata = {
   title: 'Tienda de Rituales — RitoHouse',
 };
 
-// Estructura de productos (Aquí puedes agregar más fácilmente)
+// Estructura de productos
 const productos = [
   {
     id: 'e1',
@@ -42,7 +42,7 @@ const productos = [
       <!-- TÍTULO Y FILTROS -->
       <div class="text-center mb-16">
         <h1 class="text-5xl font-serif font-bold text-[#3D2B1F] mb-4 uppercase">Catálogo de Rituales</h1>
-        <p class="text-[#55463C] italic mb-8">Selecciona tu intención y concreta tu pedido por WhatsApp</p>
+        <p class="text-[#55463C] italic mb-8">Selecciona tu intención y arma tu pedido personalizado</p>
         
         <div class="flex flex-wrap justify-center gap-4 mb-12">
           <a href="#esenciales" class="px-6 py-2 rounded-full border border-[#B57E5F] text-[#3D2B1F] font-bold hover:bg-[#B57E5F] hover:text-white transition-all text-sm">ESENCIALES</a>
@@ -65,12 +65,12 @@ const productos = [
               <div class="mb-6">
                 <span class="text-2xl font-serif font-bold text-[#3D2B1F]">${p.precio}</span>
               </div>
-              <a 
-                href={`https://wa.me/tu_numero?text=Hola RitoHouse! Me interesa el ${p.nombre} de la línea Esencial.`}
-                class="bg-[#3D2B1F] text-[#F2E8DF] text-center py-3 rounded-xl font-bold hover:bg-[#B57E5F] transition-colors flex items-center justify-center gap-2"
+              <button 
+                onclick={`agregarAlCarrito('${p.nombre}', '${p.precio}')`}
+                class="bg-[#3D2B1F] text-[#F2E8DF] text-center py-3 rounded-xl font-bold hover:bg-[#B57E5F] transition-all flex items-center justify-center gap-2 active:scale-95"
               >
-                <Icon name="tabler:brand-whatsapp" class="w-5 h-5" /> Comprar por WP
-              </a>
+                <Icon name="tabler:shopping-bag" class="w-5 h-5" /> Agregar al Carrito
+              </button>
             </div>
           ))}
         </div>
@@ -88,12 +88,12 @@ const productos = [
               <div class="mb-6">
                 <span class="text-2xl font-serif font-bold text-[#3D2B1F]">${p.precio}</span>
               </div>
-              <a 
-                href={`https://wa.me/tu_numero?text=Hola RitoHouse! Quiero adquirir el ${p.nombre} de la línea Expansión.`}
-                class="bg-[#B57E5F] text-white text-center py-3 rounded-xl font-bold hover:bg-[#3D2B1F] transition-colors flex items-center justify-center gap-2"
+              <button 
+                onclick={`agregarAlCarrito('${p.nombre}', '${p.precio}')`}
+                class="bg-[#B57E5F] text-white text-center py-3 rounded-xl font-bold hover:bg-[#3D2B1F] transition-all flex items-center justify-center gap-2 shadow-lg active:scale-95"
               >
-                <Icon name="tabler:brand-whatsapp" class="w-5 h-5" /> Solicitar por WP
-              </a>
+                <Icon name="tabler:shopping-bag" class="w-5 h-5" /> Agregar al Carrito
+              </button>
             </div>
           ))}
         </div>
@@ -111,12 +111,12 @@ const productos = [
               <div class="mb-6">
                 <span class="text-2xl font-serif font-bold text-[#3D2B1F]">${p.precio}</span>
               </div>
-              <a 
-                href={`https://wa.me/tu_numero?text=Hola RitoHouse! Deseo el ${p.nombre} Premium de la línea Trascendencia.`}
-                class="bg-[#3D2B1F] text-[#F2E8DF] text-center py-3 rounded-xl font-bold hover:bg-[#B57E5F] transition-colors flex items-center justify-center gap-2"
+              <button 
+                onclick={`agregarAlCarrito('${p.nombre}', '${p.precio}')`}
+                class="bg-[#3D2B1F] text-[#F2E8DF] text-center py-3 rounded-xl font-bold hover:bg-[#B57E5F] transition-all flex items-center justify-center gap-2 active:scale-95"
               >
-                <Icon name="tabler:brand-whatsapp" class="w-5 h-5" /> Pedido Premium WP
-              </a>
+                <Icon name="tabler:shopping-bag" class="w-5 h-5" /> Agregar al Carrito
+              </button>
             </div>
           ))}
         </div>
