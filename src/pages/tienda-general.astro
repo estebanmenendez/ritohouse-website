@@ -6,13 +6,31 @@ const metadata = {
   title: 'Tienda General — Accesorios RitoHouse',
 };
 
-// Catálogo de productos individuales
+// Catálogo expandido a 16 artículos
 const accesorios = [
+  // PIEZAS DE YESO Y CEMENTO
   { nombre: 'Bandeja Ovalada', categoria: 'Yeso y Cemento', precio: '350' },
+  { nombre: 'Portavelas Cónico', categoria: 'Yeso y Cemento', precio: '280' },
+  { nombre: 'Cuenco de Intención', categoria: 'Yeso y Cemento', precio: '450' },
+  { nombre: 'Altar de Mano', categoria: 'Yeso y Cemento', precio: '520' },
+
+  // VELAS Y LUZ
   { nombre: 'Vela Aromática Soja', categoria: 'Velas', precio: '420' },
+  { nombre: 'Vela de Alquimia Blanca', categoria: 'Velas', precio: '180' },
+  { nombre: 'Vela de Miel Pura', categoria: 'Velas', precio: '250' },
+  { nombre: 'Set Velas de Té (x4)', categoria: 'Velas', precio: '320' },
+
+  // SAHUMADO Y AROMATERAPIA
   { nombre: 'Inciensos Naturales', categoria: 'Aromaterapia', precio: '280' },
   { nombre: 'Palo Santo Selecto', categoria: 'Aromaterapia', precio: '150' },
+  { nombre: 'Atado de Salvia Blanca', categoria: 'Aromaterapia', precio: '480' },
+  { nombre: 'Bombitas de Defumación', categoria: 'Aromaterapia', precio: '190' },
+
+  // BIENESTAR Y ELEMENTOS
   { nombre: 'Jabón Artesanal', categoria: 'Bienestar', precio: '220' },
+  { nombre: 'Sal de Baño Energética', categoria: 'Bienestar', precio: '390' },
+  { nombre: 'Cristal de Cuarzo', categoria: 'Bienestar', precio: '450' },
+  { nombre: 'Aceite Esencial Puro', categoria: 'Bienestar', precio: '580' },
 ];
 ---
 
@@ -21,23 +39,21 @@ const accesorios = [
     <div class="max-w-7xl mx-auto px-4">
       <div class="text-center mb-16">
         <h1 class="text-5xl font-serif font-bold mb-4 uppercase tracking-tighter">Tienda General</h1>
-        <p class="italic text-[#55463C] text-lg">Accesorios individuales para complementar tu santuario personal</p>
+        <p class="italic text-[#55463C] text-lg">Elementos individuales para crear tu propio espacio de calma</p>
       </div>
 
-      <!-- Grid de Accesorios -->
+      <!-- Grid de 16 Accesorios -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         {accesorios.map((item) => (
           <div class="bg-white/30 p-4 rounded-2xl border border-[#B57E5F]/10 hover:shadow-lg transition-all flex flex-col text-center group">
             <div class="aspect-square bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center italic text-[#B57E5F]/30 overflow-hidden">
-              {/* Espacio para imagen futura */}
-              <span class="group-hover:scale-110 transition-transform duration-500">Foto {item.nombre}</span>
+              <span class="group-hover:scale-110 transition-transform duration-500 text-xs px-2">Foto {item.nombre}</span>
             </div>
             
             <p class="text-[10px] uppercase tracking-widest text-[#B57E5F] font-bold mb-1">{item.categoria}</p>
-            <h3 class="font-bold mb-2 flex-grow text-lg">{item.nombre}</h3>
-            <p class="font-serif font-bold mb-4 text-xl">${item.precio}</p>
+            <h3 class="font-bold mb-2 flex-grow text-md leading-tight">{item.nombre}</h3>
+            <p class="font-serif font-bold mb-4 text-lg">${item.precio}</p>
             
-            {/* BOTÓN CONECTADO AL CARRITO GLOBAL */}
             <button 
               onclick={`agregarAlCarrito('${item.nombre}', '${item.precio}')`}
               class="bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-xl text-sm font-bold hover:bg-[#B57E5F] transition-all active:scale-95 flex items-center justify-center gap-2"
