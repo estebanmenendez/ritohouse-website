@@ -8,13 +8,13 @@ export const headerData = {
     { text: 'Contacto', href: '/#contacto' },
   ],
   actions: [{ text: 'WhatsApp', href: 'https://wa.me/tu_numero', variant: 'primary' }],
-  showToggleTheme: false, // Mantenemos tu preferencia de no mostrar el cambio de tema
+  showToggleTheme: false, 
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Ritohouse',
+      title: 'RitoHouse',
       links: [
         { text: 'Nuestra Historia', href: '/#historia' },
         { text: 'Catálogo de Boxes', href: '/#productos' },
@@ -34,9 +34,14 @@ export const footerData = {
     { text: 'Uruguay', href: '#' },
   ],
   socialLinks: [
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://instagram.com/ritohousepdu' },
+    { 
+      ariaLabel: 'Instagram', 
+      icon: 'tabler:brand-instagram', 
+      href: 'https://instagram.com/ritohousepdu',
+      text: 'Síguenos' 
+    },
   ],
   footNote: `
-    Diseñado por <a class="text-[#D4A373] hover:underline font-semibold" href="#">Steb</a> · Ritohouse © 2026
+    Diseñado por <a class="text-[#B57E5F] hover:underline font-semibold" href="#">EM</a> · RitoHouse © 2026
   `,
 };
