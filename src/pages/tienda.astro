@@ -123,18 +123,19 @@ const productos = [
           
           <div class="grid md:grid-cols-4 gap-6">
             {productos.filter(p => p.categoria === cat).map(p => (
-              <div class="bg-white/30 rounded-2xl border border-[#B57E5F]/10 p-5 flex flex-col group hover:shadow-xl transition-all">
-                <div class="aspect-video bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center italic text-[#B57E5F]/30 overflow-hidden">
+              /* CORRECCIÓN: Se añadió 'text-center' e 'items-center' para centrar todo el contenido */
+              <div class="bg-white/30 rounded-2xl border border-[#B57E5F]/10 p-5 flex flex-col items-center text-center group hover:shadow-xl transition-all">
+                <div class="aspect-video w-full bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center italic text-[#B57E5F]/30 overflow-hidden">
                   <span class="group-hover:scale-110 transition-transform duration-500 text-sm">Foto {p.nombre}</span>
                 </div>
-                <h3 class="text-lg font-bold mb-2 leading-tight">{p.nombre}</h3>
+                <h3 class="text-lg font-bold mb-2 leading-tight text-[#3D2B1F]">{p.nombre}</h3>
                 <p class="text-xs text-[#55463C] mb-4 flex-grow italic">{p.descripcion}</p>
                 <div class="mb-5">
-                  <span class="text-xl font-serif font-bold">${p.precio}</span>
+                  <span class="text-xl font-serif font-bold text-[#3D2B1F]">${p.precio}</span>
                 </div>
                 <button 
                   onclick={`agregarAlCarrito('${p.nombre}', '${p.precio}')`}
-                  class="bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-xl font-bold hover:bg-[#B57E5F] transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md"
+                  class="w-full bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-xl font-bold hover:bg-[#B57E5F] transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md"
                 >
                   <Icon name="tabler:shopping-bag" class="w-5 h-5" /> Agregar
                 </button>
