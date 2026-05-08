@@ -7,12 +7,12 @@ export const headerData = {
     { text: 'Tienda General', href: '/tienda-general' },
     { text: 'Contacto', href: '/#contacto' },
   ],
-  actions: [{ text: 'WhatsApp',
-      href: 'https://wa.me/59899556772', // Formato internacional para Uruguay
-      variant: 'primary'
+  actions: [{ text: 'WhatsApp', href: 'https://wa.me/59899556772', variant: 'primary' }],
+  showToggleTheme: false,
 };
 
 export const footerData = {
+  // Cambiamos la estructura para que solo muestre RitoHouse
   links: [
     {
       title: 'RitoHouse',
