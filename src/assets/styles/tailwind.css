@@ -16,7 +16,7 @@ html {
     /* Primario: Marrón Ébano Profundo (Máximo Contraste) */
     --aw-color-primary: 61 43 31;
     
-    /* Acento: Terracota Contemporáneo */
+    /* Acento: Terracota Contemporáneo (Mudra) */
     --aw-color-accent: 181 126 95;
     
     --aw-color-secondary: 215 194 175;
@@ -84,12 +84,23 @@ header ul {
   color: #B57E5F !important;
 }
 
-/* 5. CORRECCIÓN DE SECCIONES (Features/Content) */
-/* Esto soluciona el problema de los textos que heredaban "blanco" del template anterior */
+/* 5. CORRECCIÓN DE TAGLINES Y SECCIONES (Impacto Visual) */
+/* Forzamos el color Terracota Mudra para "Artesanía con Propósito" y otros subtítulos */
+[data-aw-tagline], 
+.text-primary, 
+.dark\:text-blue-200 {
+  color: #B57E5F !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.15em !important;
+}
+
+/* Soluciona textos que heredaban blanco o gris azulado del template */
 .text-white, 
 .dark\:text-white,
 .text-slate-400, 
-.text-muted {
+.text-muted,
+.text-slate-300 {
   color: #3D2B1F !important;
 }
 
@@ -101,4 +112,10 @@ footer, footer div, footer span, footer a {
 
 footer a:hover {
   color: #B57E5F !important;
+}
+
+/* 7. DETALLES DE FORMALISMO RITOHOUSE */
+/* Estilo para las citas o textos destacados que añadimos en el index */
+.border-l-4 {
+  border-color: #B57E5F !important;
 }
