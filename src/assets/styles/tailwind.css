@@ -1,74 +1,103 @@
-/* ==========================================================================
-   RITOHOUSE: LIMPIEZA DEFINITIVA DEL HEADER Y CONTRASTE DE IMPACTO
-   ========================================================================== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* 1. Forzar el fondo del encabezado y eliminar la franja negra */
-#header, 
-#header div, 
-header nav, 
-header ul {
-  background-color: #F2E8DF !important; /* Tono Hoja Vieja/Pergamino */
-  background-image: none !important;
+/* 0. BLOQUEO DE COLOR MÍSTICO */
+html {
+  background-color: #EAE5DE !important; /* Color Yeso/Hueso original */
+  color-scheme: light;
 }
 
-/* 2. Borde inferior sutil para dar estructura sin ensuciar */
+/* CONFIGURACIÓN DE COLORES RITOHOUSE ORIGINAL */
+@layer base {
+  :root {
+    --aw-font-sans: 'InterVariable', 'Inter', ui-sans-serif, system-ui;
+    --aw-font-serif: 'Georgia', serif;
+
+    /* Marrón Ceniza/Cáñamo #5C544E */
+    --aw-color-primary: 92 84 78;
+    /* Tono Tierra suave #D4A373 */
+    --aw-color-accent: 212 163 115;
+    --aw-color-secondary: 217 210 201;
+
+    /* Fondo de Página: Yeso #EAE5DE */
+    --aw-color-bg-page: 234 229 222;
+    --aw-color-bg-page-dark: 234 229 222;
+
+    /* Textos: Marrón suave para misticismo */
+    --aw-color-text-page: 62 56 51;
+    --aw-color-text-muted: 107 99 92;
+    --aw-color-text-heading: 92 84 78;
+  }
+
+  .dark {
+    --aw-color-bg-page: 234 229 222;
+    --aw-color-text-page: 62 56 51;
+  }
+
+  ::selection {
+    background-color: rgb(var(--aw-color-accent));
+    color: #ffffff;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* SOBRESCRIBIR AZULES Y DORADOS */
+  .text-primary, 
+  .text-blue-600, 
+  .aw-link-active,
+  [aria-current="page"] {
+    color: rgb(var(--aw-color-primary)) !important;
+  }
+
+  .bg-primary, 
+  .bg-accent {
+    background-color: rgb(var(--aw-color-accent)) !important;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full border-gray-300 border bg-transparent font-medium text-center text-base transition py-2.5 px-6 ease-in duration-200;
+  }
+
+  .btn-primary {
+    @apply btn font-semibold bg-[#5C544E] text-white border-[#5C544E] hover:bg-[#D4A373] hover:border-[#D4A373] !important;
+  }
+
+  .btn-secondary {
+    @apply btn border-[#5C544E] text-[#5C544E] hover:bg-[#5C544E] hover:text-white;
+  }
+}
+
+/* HEADER RITOHOUSE: LIMPIO Y CLARO */
 #header {
-  border-bottom: 1px solid rgba(62, 45, 35, 0.15) !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+  @apply bg-[#EAE5DE] !important;
+  border-bottom: 1px solid rgba(146, 134, 123, 0.1);
 }
 
-/* 3. Impacto visual en el nombre de la marca (Logo) */
-#header .self-center,
-#header span {
-  color: #3E2D23 !important; /* Marrón Café Profundo */
-  font-family: 'Georgia', serif !important;
-  font-weight: 800 !important;
-  text-transform: uppercase !important;
-  letter-spacing: -0.02em !important;
-  opacity: 1 !important;
+#header.scroll > div:first-child {
+  background-color: rgba(234, 229, 222, 0.9) !important;
+  backdrop-filter: blur(8px);
 }
 
-/* 4. Navegación: Máxima legibilidad */
-#header nav a {
-  color: #3E2D23 !important; /* Contraste fuerte contra el fondo crema */
-  font-weight: 700 !important;
-  font-size: 0.95rem !important;
-  opacity: 0.9 !important;
-  transition: all 0.2s ease !important;
+#header.expanded nav {
+  @apply bg-[#EAE5DE] !important;
 }
 
-#header nav a:hover {
-  color: #B57E5F !important; /* Terracota rústico al pasar el mouse */
-  opacity: 1 !important;
+/* TIPOGRAFÍA MÍSTICA */
+h1, h2, h3 {
+  font-family: var(--aw-font-serif);
+  @apply tracking-tight;
 }
 
-/* 5. Estado Activo (Donde está el usuario) */
-#header nav a.aw-link-active,
-#header nav a[aria-current="page"] {
-  color: #B57E5F !important;
+/* FIX IMÁGENES */
+img {
+  object-fit: cover !important;
   background-color: transparent !important;
-  border-bottom: 2px solid #B57E5F !important;
-}
-
-/* 6. Botón WhatsApp: El punto de impacto moderno */
-#header .btn-primary {
-  background-color: #3E2D23 !important;
-  color: #F2E8DF !important;
-  border-radius: 9999px !important; /* Totalmente redondeado */
-  padding: 0.6rem 1.5rem !important;
-  font-weight: 800 !important;
-  border: none !important;
-  box-shadow: 0 4px 6px rgba(62, 45, 35, 0.2) !important;
-  transition: transform 0.2s ease, background-color 0.2s ease !important;
-}
-
-#header .btn-primary:hover {
-  background-color: #B57E5F !important;
-  transform: translateY(-1px) !important;
-}
-
-/* 7. Eliminar cualquier rastro de filtros o capas oscuras del template anterior */
-#header::before, 
-#header::after {
-  display: none !important;
+  border-radius: 0.5rem;
 }
