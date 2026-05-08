@@ -11,7 +11,8 @@ export const headerData = {
     { 
       text: 'WhatsApp', 
       href: 'https://wa.me/59899556772', 
-      variant: 'primary' 
+      variant: 'primary',
+      target: '_blank', // Asegura que abra en una pestaña nueva
     }
   ],
   showToggleTheme: false,
@@ -44,7 +45,6 @@ export const footerData = {
       ariaLabel: 'Instagram', 
       icon: 'tabler:brand-instagram', 
       href: 'https://instagram.com/ritohousepdu',
-      text: 'Síguenos' 
     },
   ],
   footNote: `
