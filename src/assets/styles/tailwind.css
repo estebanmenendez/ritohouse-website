@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 0. FONDO PERGAMINO / HOJA VIEJA */
+/* 0. BLOQUEO DEFINITIVO: FONDO HOJA VIEJA */
 html {
-  background-color: #F2E8DF !important; /* Un tono más cálido y rústico que el anterior */
+  background-color: #F2E8DF !important; 
   color-scheme: light;
 }
 
@@ -13,72 +13,92 @@ html {
     --aw-font-sans: 'InterVariable', 'Inter', ui-sans-serif, system-ui;
     --aw-font-serif: 'Georgia', serif;
 
-    /* Primario: Marrón Ébano (Para que el texto IMPACTE y sea legible) */
-    /* #3D2B1F -> rgb(61, 43, 31) */
+    /* Primario: Marrón Ébano Profundo (Máximo Contraste) */
     --aw-color-primary: 61 43 31;
     
-    /* Acento: Terracota Suave (Elegancia contemporánea) */
-    /* #B57E5F -> rgb(181, 126, 95) */
+    /* Acento: Terracota Contemporáneo */
     --aw-color-accent: 181 126 95;
     
     --aw-color-secondary: 215 194 175;
 
-    /* Fondos de página */
+    /* Colores de Fondo de Página */
     --aw-color-bg-page: 242 232 223;
     --aw-color-bg-page-dark: 242 232 223;
 
-    /* COLORES DE TEXTO FORZADOS PARA LEGIBILIDAD */
-    --aw-color-text-page: 44 34 27;     /* Casi negro/marrón muy oscuro */
-    --aw-color-text-muted: 85 70 60;    /* Marrón medio para descripciones */
-    --aw-color-text-heading: 61 43 31;  /* Títulos con máxima fuerza */
+    /* Colores de Texto: Se acabó la ilegibilidad */
+    --aw-color-text-page: 44 34 27;     /* Marrón casi negro */
+    --aw-color-text-muted: 85 70 60;    /* Marrón medio */
+    --aw-color-text-heading: 61 43 31;  /* Títulos con fuerza visual */
   }
 
-  /* Desactivar cualquier rastro de modo oscuro */
+  /* 1. ELIMINACIÓN DE MODO OSCURO */
   .dark, [data-theme='dark'] {
-    --aw-color-bg-page: 242 232 223;
-    --aw-color-text-page: 44 34 27;
+    --aw-color-bg-page: 242 232 223 !important;
+    --aw-color-text-page: 44 34 27 !important;
+    --aw-color-text-heading: 61 43 31 !important;
   }
 
-  /* REGLA DE ORO: Ningún texto puede ser blanco en este fondo */
-  p, span, li, a {
-    color: rgb(var(--aw-color-text-page));
+  /* 2. REGLA DE ORO DE RITOHOUSE: Cero textos blancos en fondo claro */
+  p, span, li, a, div {
+    color: #2C221B; /* Forzamos un tono oscuro legible */
   }
 
-  /* Títulos en Serif para elegancia */
-  h1, h2, h3, h4 {
-    font-family: var(--aw-font-serif);
-    color: rgb(var(--aw-color-text-heading)) !important;
+  /* 3. TIPOGRAFÍA ELEGANTE */
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--aw-font-serif) !important;
+    color: #3D2B1F !important;
   }
 }
 
 @layer components {
-  /* Botones con contraste real */
+  /* Botones con impacto y legibilidad */
   .btn-primary {
     @apply inline-flex items-center justify-center rounded-full bg-[#3D2B1F] text-[#F2E8DF] px-8 py-3 font-bold hover:bg-[#B57E5F] transition-all !important;
+    border: none !important;
   }
 }
 
-/* HEADER: Limpio y con contraste en el menú */
-#header {
+/* 4. HEADER: LIMPIEZA DE RASTROS NEGROS */
+#header, 
+#header div, 
+header nav, 
+header ul {
   background-color: #F2E8DF !important;
-  border-bottom: 1px solid rgba(61, 43, 31, 0.1);
+  background-image: none !important;
 }
 
-#header nav a {
+#header {
+  border-bottom: 1px solid rgba(61, 43, 31, 0.15) !important;
+}
+
+/* Texto del menú con impacto */
+#header nav a, 
+#header .self-center,
+#header span {
   color: #3D2B1F !important;
   font-weight: 700 !important;
+  opacity: 1 !important;
 }
 
 #header nav a:hover {
   color: #B57E5F !important;
 }
 
-/* FIX PARA LA SECCIÓN DE LA IMAGEN (Features) */
-/* Esto obliga a que los títulos de los items (Boxes, Velas, etc) se vean */
-.text-white {
+/* 5. CORRECCIÓN DE SECCIONES (Features/Content) */
+/* Esto soluciona el problema de los textos que heredaban "blanco" del template anterior */
+.text-white, 
+.dark\:text-white,
+.text-slate-400, 
+.text-muted {
   color: #3D2B1F !important;
 }
 
-.text-slate-400, .text-muted {
+/* 6. PIE DE PÁGINA (Firma Steb) */
+footer, footer div, footer span, footer a {
+  background-color: #F2E8DF !important;
   color: #55463C !important;
+}
+
+footer a:hover {
+  color: #B57E5F !important;
 }
