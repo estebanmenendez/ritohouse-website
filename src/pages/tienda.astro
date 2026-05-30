@@ -14,6 +14,7 @@ const productos = [
     nombre: 'Box Inicio Sagrado',
     descripcion: 'Lo fundamental para tu primer ritual de limpieza energética.',
     precio: '850',
+    imagen: '', // <- Añade aquí la ruta de la imagen (ej: '/assets/images/box-inicio.png')
   },
   {
     id: 'e2',
@@ -21,6 +22,7 @@ const productos = [
     nombre: 'Box Purificación',
     descripcion: 'Ideal para limpiar nuevos espacios y renovar el aire del hogar.',
     precio: '920',
+    imagen: '',
   },
   {
     id: 'e3',
@@ -28,6 +30,7 @@ const productos = [
     nombre: 'Box Calma Interior',
     descripcion: 'Enfocado en la relajación diaria y el descenso del estrés.',
     precio: '880',
+    imagen: '',
   },
   {
     id: 'e4',
@@ -35,6 +38,7 @@ const productos = [
     nombre: 'Box Intención Lunar',
     descripcion: 'Set básico para conectar con las fases de la luna.',
     precio: '950',
+    imagen: '',
   },
 
   // 2. EXPANSIÓN (Profundización y conexión)
@@ -44,6 +48,7 @@ const productos = [
     nombre: 'Box Expansión Áurea',
     descripcion: 'Conexión profunda con elementos de la naturaleza y decretos.',
     precio: '1450',
+    imagen: '',
   },
   {
     id: 'ex2',
@@ -51,6 +56,7 @@ const productos = [
     nombre: 'Box Abundancia Flor',
     descripcion: 'Atrae la prosperidad con botánica seca y cristales seleccionados.',
     precio: '1600',
+    imagen: '',
   },
   {
     id: 'ex3',
@@ -58,6 +64,7 @@ const productos = [
     nombre: 'Box Protección Hogar',
     descripcion: 'Crea un escudo energético en las entradas de tu casa.',
     precio: '1550',
+    imagen: '',
   },
   {
     id: 'ex4',
@@ -65,6 +72,7 @@ const productos = [
     nombre: 'Box Armonía Familiar',
     descripcion: 'Ritual diseñado para equilibrar la convivencia en espacios comunes.',
     precio: '1680',
+    imagen: '',
   },
 
   // 3. TRASCENDENCIA (Maestría y Alquimia)
@@ -74,6 +82,7 @@ const productos = [
     nombre: 'Box Trascendencia Total',
     descripcion: 'La experiencia de alquimia definitiva con piezas de diseño.',
     precio: '2800',
+    imagen: '',
   },
   {
     id: 't2',
@@ -81,6 +90,7 @@ const productos = [
     nombre: 'Box Alquimia Ancestral',
     descripcion: 'Kit profesional con elementos de sahumado antiguo y resinas.',
     precio: '3100',
+    imagen: '',
   },
   {
     id: 't3',
@@ -88,6 +98,7 @@ const productos = [
     nombre: 'Box Ritual de Vida',
     descripcion: 'Un viaje completo por los 4 elementos para momentos de cambio.',
     precio: '2950',
+    imagen: '',
   },
   {
     id: 't4',
@@ -95,6 +106,7 @@ const productos = [
     nombre: 'Box Maestro de Luz',
     descripcion: 'Set premium con nuestras piezas de cemento más exclusivas.',
     precio: '3400',
+    imagen: '',
   }
 ];
 ---
@@ -123,11 +135,23 @@ const productos = [
           
           <div class="grid md:grid-cols-4 gap-6">
             {productos.filter(p => p.categoria === cat).map(p => (
-              /* CORRECCIÓN: Se añadió 'text-center' e 'items-center' para centrar todo el contenido */
               <div class="bg-white/30 rounded-2xl border border-[#B57E5F]/10 p-5 flex flex-col items-center text-center group hover:shadow-xl transition-all">
-                <div class="aspect-video w-full bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center italic text-[#B57E5F]/30 overflow-hidden">
-                  <span class="group-hover:scale-110 transition-transform duration-500 text-sm">Foto {p.nombre}</span>
+                
+                {/* CONTENEDOR DE IMAGEN CUADRADA OPTIMIZADA */}
+                <div class="aspect-square w-full bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center overflow-hidden shadow-inner relative">
+                  {p.imagen ? (
+                    <img 
+                      src={p.imagen} 
+                      alt={p.nombre} 
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <span class="text-xs italic text-[#B57E5F]/40 group-hover:scale-110 transition-transform duration-500 px-2">
+                      Foto {p.nombre}
+                    </span>
+                  )}
                 </div>
+
                 <h3 class="text-lg font-bold mb-2 leading-tight text-[#3D2B1F]">{p.nombre}</h3>
                 <p class="text-xs text-[#55463C] mb-4 flex-grow italic">{p.descripcion}</p>
                 <div class="mb-5">
