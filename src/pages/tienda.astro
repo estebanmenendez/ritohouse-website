@@ -142,7 +142,7 @@ const productos = [
             {productos.filter(p => p.categoria === cat).map(p => (
               <div class="bg-white/30 rounded-2xl border border-[#B57E5F]/10 p-5 flex flex-col items-center text-center group hover:shadow-xl transition-all">
                 
-                {/* CONTENEDOR DE IMAGEN CUADRADA CON DETECCIÓN CORREGIDA */}
+                {/* CONTENEDOR DE IMAGEN CUADRADA */}
                 <div class="aspect-square w-full bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center overflow-hidden shadow-inner relative">
                   {p.imagen ? (
                     <img 
@@ -162,9 +162,39 @@ const productos = [
                 <div class="mb-5">
                   <span class="text-xl font-serif font-bold text-[#3D2B1F]">${p.precio}</span>
                 </div>
-               <button 
-  onclick={`agregarAlCarrito("${p.nombre}", "${p.precio}")`}
-  class="w-full bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-xl font-bold hover:bg-[#B57E5F] transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md"
->
-  <Icon name="tabler:shopping-bag" class="w-5 h-5" /> Agregar
-</button>
+                
+                {/* SOLUCIÓN DE CONFIGURACIÓN SEGURO: Usamos Atributos de Datos Libres de Conflictos */}
+                <button 
+                  data-nombre={p.nombre}
+                  data-precio={p.precio}
+                  class="btn-agregar-carrito w-full bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-xl font-bold hover:bg-[#B57E5F] transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md"
+                >
+                  <Icon name="tabler:shopping-bag" class="w-5 h-5" /> Agregar
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<script>
+  // Script del lado del cliente para manejar los clicks de forma limpia y pasar el build sin problemas
+  document.addEventListener('DOMContentLoaded', () => {
+    const botones = document.querySelectorAll('.btn-agregar-carrito');
+    botones.forEach(boton => {
+      boton.addEventListener('click', (e) => {
+        const target = e.currentTarget as HTMLButtonElement;
+        const nombre = target.getAttribute('data-nombre');
+        const precio = target.getAttribute('data-precio');
+        
+        // Ejecutamos la función global del carrito
+        if (typeof (window as any).agregarAlCarrito === 'function') {
+          (window as any).agregarAlCarrito(nombre, precio);
+        }
+      });
+    });
+  });
+</script>
