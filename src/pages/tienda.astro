@@ -7,7 +7,6 @@ import fotoInicio from '~/assets/images/box-inicio.png';
 import fotoPurificacion from '~/assets/images/box-purificacion.png';
 import fotoCalma from '~/assets/images/box-calma.png';
 import fotoAbundancia from '~/assets/images/box-abundancia.png'; 
-// Quitamos la importación del altar hasta que subas el archivo real
 
 const metadata = {
   title: 'Tienda de Rituales — RitoHouse',
@@ -63,12 +62,12 @@ const productos = [
     nombre: 'Box Altar Místico',
     descripcion: 'Eleva la vibración de tu rincón sagrado con piezas exclusivas.',
     precio: '1650',
-    imagen: '', // <-- SOLUCIÓN: Lo dejamos vacío para que muestre el recuadro gris de la marca sin dar error
+    imagen: '', 
   },
   {
     id: 'ex3',
     categoria: 'expansion',
-    nombre: 'Box Protección Hogar',
+    nombre: 'Box Protection Hogar',
     descripcion: 'Crea un escudo energético en las entradas de tu casa.',
     precio: '1550',
     imagen: '',
@@ -158,3 +157,43 @@ const productos = [
                     </span>
                   )}
                 </div>
+
+                <h3 class="text-lg font-bold mb-2 leading-tight text-[#3D2B1F]">{p.nombre}</h3>
+                <p class="text-xs text-[#55463C] mb-4 flex-grow italic">{p.descripcion}</p>
+                <div class="mb-5">
+                  <span class="text-xl font-serif font-bold text-[#3D2B1F]">${p.precio}</span>
+                </div>
+                
+                {/* BOTÓN SEGURO SIN ONCLICK INTERNO */}
+                <button 
+                  data-nombre={p.nombre}
+                  data-precio={p.precio}
+                  class="btn-agregar-carrito w-full bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-xl font-bold hover:bg-[#B57E5F] transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md"
+                >
+                  <Icon name="tabler:shopping-bag" class="w-5 h-5" /> Agregar
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const botones = document.querySelectorAll('.btn-agregar-carrito');
+    botones.forEach(boton => {
+      boton.addEventListener('click', (e) => {
+        const target = e.currentTarget as HTMLButtonElement;
+        const nombre = target.getAttribute('data-nombre');
+        const precio = target.getAttribute('data-precio');
+        
+        if (typeof (window as any).agregarAlCarrito === 'function') {
+          (window as any).agregarAlCarrito(nombre, precio);
+        }
+      });
+    });
+  });
+</script>
