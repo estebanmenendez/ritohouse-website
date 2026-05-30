@@ -2,25 +2,25 @@
 import Layout from '~/layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
 
-// 1. IMPORTACIÓN DE FOTOS (Añadimos la quinta foto aquí)
+// 1. IMPORTACIÓN DE FOTOS (Solo las que ya existen físicamente en tu repositorio)
 import fotoInicio from '~/assets/images/box-inicio.png';
 import fotoPurificacion from '~/assets/images/box-purificacion.png';
 import fotoCalma from '~/assets/images/box-calma.png';
 import fotoAbundancia from '~/assets/images/box-abundancia.png'; 
-
+// Quitamos la importación del altar hasta que subas el archivo real
 
 const metadata = {
   title: 'Tienda de Rituales — RitoHouse',
 };
 
 const productos = [
-  // 1. ESENCIALES (Iniciación y limpieza básica - Completado con 4 boxes)
+  // 1. ESENCIALES (Completado con 4 boxes y sus fotos listas)
   {
     id: 'e1',
     categoria: 'esenciales',
     nombre: 'Box Inicio Sagrado',
     descripcion: 'Lo fundamental para tu primer ritual de limpieza energética.',
-    precio: '750',
+    precio: '850',
     imagen: fotoInicio, 
   },
   {
@@ -36,7 +36,7 @@ const productos = [
     categoria: 'esenciales',
     nombre: 'Box Calma Interior',
     descripcion: 'Enfocado en la relajación diaria y el descenso del estrés.',
-    precio: '750',
+    precio: '880',
     imagen: fotoCalma, 
   },
   {
@@ -44,11 +44,11 @@ const productos = [
     categoria: 'esenciales',
     nombre: 'Box Abundancia Flor',
     descripcion: 'Atrae la prosperidad con botánica seca y cristales seleccionados.',
-    precio: '850',
+    precio: '1600',
     imagen: fotoAbundancia, 
   },
 
-  // 2. EXPANSIÓN (Profundización y conexión - ¡NUEVO BOX AÑADIDO PARA COMPLETAR LOS 4!)
+  // 2. EXPANSIÓN (Completado con 4 boxes - El nuevo queda en espera de su foto)
   {
     id: 'ex1',
     categoria: 'expansion',
@@ -59,11 +59,11 @@ const productos = [
   },
   {
     id: 'ex2',
-    categoria: 'expansion', // <-- NUEVO INTEGRANTE EN EXPANSIÓN
+    categoria: 'expansion', 
     nombre: 'Box Altar Místico',
     descripcion: 'Eleva la vibración de tu rincón sagrado con piezas exclusivas.',
     precio: '1650',
-    imagen: fotoAltar, // <-- Su foto correspondiente
+    imagen: '', // <-- SOLUCIÓN: Lo dejamos vacío para que muestre el recuadro gris de la marca sin dar error
   },
   {
     id: 'ex3',
@@ -82,7 +82,7 @@ const productos = [
     imagen: '',
   },
 
-  // 3. TRASCENDENCIA (Maestría y Alquimia - Completado con 4 boxes)
+  // 3. TRASCENDENCIA (Completado con 4 boxes)
   {
     id: 't1',
     categoria: 'trascendencia',
@@ -158,43 +158,3 @@ const productos = [
                     </span>
                   )}
                 </div>
-
-                <h3 class="text-lg font-bold mb-2 leading-tight text-[#3D2B1F]">{p.nombre}</h3>
-                <p class="text-xs text-[#55463C] mb-4 flex-grow italic">{p.descripcion}</p>
-                <div class="mb-5">
-                  <span class="text-xl font-serif font-bold text-[#3D2B1F]">${p.precio}</span>
-                </div>
-                
-                {/* BOTÓN DE CONFIGURACIÓN SEGURO */}
-                <button 
-                  data-nombre={p.nombre}
-                  data-precio={p.precio}
-                  class="btn-agregar-carrito w-full bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-xl font-bold hover:bg-[#B57E5F] transition-all flex items-center justify-center gap-2 active:scale-95 shadow-md"
-                >
-                  <Icon name="tabler:shopping-bag" class="w-5 h-5" /> Agregar
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
-</Layout>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const botones = document.querySelectorAll('.btn-agregar-carrito');
-    botones.forEach(boton => {
-      boton.addEventListener('click', (e) => {
-        const target = e.currentTarget as HTMLButtonElement;
-        const nombre = target.getAttribute('data-nombre');
-        const precio = target.getAttribute('data-precio');
-        
-        if (typeof (window as any).agregarAlCarrito === 'function') {
-          (window as any).agregarAlCarrito(nombre, precio);
-        }
-      });
-    });
-  });
-</script>
