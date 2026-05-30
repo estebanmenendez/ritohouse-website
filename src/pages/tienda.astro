@@ -6,7 +6,7 @@ import { Icon } from 'astro-icon/components';
 import fotoInicio from '~/assets/images/box-inicio.png';
 import fotoPurificacion from '~/assets/images/box-purificacion.png';
 import fotoCalma from '~/assets/images/box-calma.png';
-import fotoAbundancia from '~/assets/images/box-abundancia.png'; // <-- CUARTA FOTO IMPORTADA
+import fotoAbundancia from '~/assets/images/box-abundancia.png'; 
 
 const metadata = {
   title: 'Tienda de Rituales — RitoHouse',
@@ -40,11 +40,11 @@ const productos = [
   },
   {
     id: 'e4',
-    categoria: 'esenciales',
-    nombre: 'Box Intención Lunar',
-    descripcion: 'Set básico para conectar con las fases de la luna.',
-    precio: '950',
-    imagen: '', 
+    categoria: 'esenciales', // <-- AHORA ES UN RITUAL ESENCIAL
+    nombre: 'Box Abundancia Flor',
+    descripcion: 'Atrae la prosperidad con botánica seca y cristales seleccionados.',
+    precio: '1600',
+    imagen: fotoAbundancia, // <-- SU FOTO CORRESPONDIENTE
   },
 
   // 2. EXPANSIÓN (Profundización y conexión)
@@ -55,14 +55,6 @@ const productos = [
     descripcion: 'Conexión profunda con elementos de la naturaleza y decretos.',
     precio: '1450',
     imagen: '',
-  },
-  {
-    id: 'ex2',
-    categoria: 'expansion',
-    nombre: 'Box Abundancia Flor',
-    descripcion: 'Atrae la prosperidad con botánica seca y cristales seleccionados.',
-    precio: '1600',
-    imagen: fotoAbundancia, // <-- CUARTA FOTO ASIGNADA AQUÍ
   },
   {
     id: 'ex3',
@@ -164,7 +156,7 @@ const productos = [
                   <span class="text-xl font-serif font-bold text-[#3D2B1F]">${p.precio}</span>
                 </div>
                 
-                {/* SOLUCIÓN DE CONFIGURACIÓN SEGURO: Usamos Atributos de Datos Libres de Conflictos */}
+                {/* SOLUCIÓN DE CONFIGURACIÓN SEGURO */}
                 <button 
                   data-nombre={p.nombre}
                   data-precio={p.precio}
@@ -182,7 +174,6 @@ const productos = [
 </Layout>
 
 <script>
-  // Script del lado del cliente para manejar los clicks de forma limpia y pasar el build sin problemas
   document.addEventListener('DOMContentLoaded', () => {
     const botones = document.querySelectorAll('.btn-agregar-carrito');
     botones.forEach(boton => {
@@ -191,7 +182,6 @@ const productos = [
         const nombre = target.getAttribute('data-nombre');
         const precio = target.getAttribute('data-precio');
         
-        // Ejecutamos la función global del carrito
         if (typeof (window as any).agregarAlCarrito === 'function') {
           (window as any).agregarAlCarrito(nombre, precio);
         }
