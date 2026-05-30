@@ -19,7 +19,7 @@ const productos = [
     nombre: 'Box Inicio Sagrado',
     descripcion: 'Lo fundamental para tu primer ritual de limpieza energética.',
     precio: '850',
-    imagen: fotoInicio, // <-- Asignamos la foto importada
+    imagen: fotoInicio, 
   },
   {
     id: 'e2',
@@ -27,7 +27,7 @@ const productos = [
     nombre: 'Box Purificación',
     descripcion: 'Ideal para limpiar nuevos espacios y renovar el aire del hogar.',
     precio: '920',
-    imagen: fotoPurificacion, // <-- Asignamos la foto importada
+    imagen: fotoPurificacion, 
   },
   {
     id: 'e3',
@@ -35,7 +35,7 @@ const productos = [
     nombre: 'Box Calma Interior',
     descripcion: 'Enfocado en la relajación diaria y el descenso del estrés.',
     precio: '880',
-    imagen: fotoCalma, // <-- Asignamos la foto importada
+    imagen: fotoCalma, 
   },
   {
     id: 'e4',
@@ -43,6 +43,125 @@ const productos = [
     nombre: 'Box Intención Lunar',
     descripcion: 'Set básico para conectar con las fases de la luna.',
     precio: '950',
-    imagen: '', // Queda vacío mostrando el diseño gris hasta que tengas la foto
+    imagen: '', 
   },
-  // ... el resto de tus productos sigue igual hacia abajo
+
+  // 2. EXPANSIÓN (Profundización y conexión)
+  {
+    id: 'ex1',
+    categoria: 'expansion',
+    nombre: 'Box Expansión Áurea',
+    descripcion: 'Conexión profunda con elementos de la naturaleza y decretos.',
+    precio: '1450',
+    imagen: '',
+  },
+  {
+    id: 'ex2',
+    categoria: 'expansion',
+    nombre: 'Box Abundancia Flor',
+    descripcion: 'Atrae la prosperidad con botánica seca y cristales seleccionados.',
+    precio: '1600',
+    imagen: '',
+  },
+  {
+    id: 'ex3',
+    categoria: 'expansion',
+    nombre: 'Box Protección Hogar',
+    descripcion: 'Crea un escudo energético en las entradas de tu casa.',
+    precio: '1550',
+    imagen: '',
+  },
+  {
+    id: 'ex4',
+    categoria: 'expansion',
+    nombre: 'Box Armonía Familiar',
+    descripcion: 'Ritual diseñado para equilibrar la convivencia en espacios comunes.',
+    precio: '1680',
+    imagen: '',
+  },
+
+  // 3. TRASCENDENCIA (Maestría y Alquimia)
+  {
+    id: 't1',
+    categoria: 'trascendencia',
+    nombre: 'Box Trascendencia Total',
+    descripcion: 'La experiencia de alquimia definitiva con piezas de diseño.',
+    precio: '2800',
+    imagen: '',
+  },
+  {
+    id: 't2',
+    categoria: 'trascendencia',
+    nombre: 'Box Alquimia Ancestral',
+    descripcion: 'Kit profesional con elementos de sahumado antiguo y resinas.',
+    precio: '3100',
+    imagen: '',
+  },
+  {
+    id: 't3',
+    categoria: 'trascendencia',
+    nombre: 'Box Ritual de Vida',
+    descripcion: 'Un viaje completo por los 4 elementos para momentos de cambio.',
+    precio: '2950',
+    imagen: '',
+  },
+  {
+    id: 't4',
+    categoria: 'trascendencia',
+    nombre: 'Box Maestro de Luz',
+    descripcion: 'Set premium con nuestras piezas de cemento más exclusivas.',
+    precio: '3400',
+    imagen: '',
+  }
+];
+---
+
+<Layout metadata={metadata}>
+  <section class="bg-[#F2E8DF] min-h-screen py-20 text-[#3D2B1F]">
+    <div class="max-w-7xl mx-auto px-4">
+      
+      <div class="text-center mb-16">
+        <h1 class="text-5xl font-serif font-bold mb-4 uppercase tracking-tighter">Catálogo de Rituales</h1>
+        <p class="italic text-[#55463C] text-lg">Selecciona tu intención y arma tu pedido personalizado</p>
+        
+        <div class="flex flex-wrap justify-center gap-4 mt-8">
+          <a href="#esenciales" class="px-6 py-2 rounded-full border border-[#B57E5F] font-bold hover:bg-[#B57E5F] hover:text-white transition-all text-sm">ESENCIALES</a>
+          <a href="#expansion" class="px-6 py-2 rounded-full border border-[#B57E5F] font-bold hover:bg-[#B57E5F] hover:text-white transition-all text-sm">EXPANSIÓN</a>
+          <a href="#trascendencia" class="px-6 py-2 rounded-full border border-[#B57E5F] font-bold hover:bg-[#B57E5F] hover:text-white transition-all text-sm">TRASCENDENCIA</a>
+        </div>
+      </div>
+
+      {/* RENDERIZADO DE CATEGORÍAS */}
+      {['esenciales', 'expansion', 'trascendencia'].map((cat, index) => (
+        <div id={cat} class="mb-24 scroll-mt-24">
+          <h2 class="text-3xl font-serif font-bold text-[#B57E5F] border-b border-[#B57E5F]/20 pb-2 mb-10 uppercase tracking-widest text-center md:text-left">
+            {index + 1}. Rituales de {cat.charAt(0).toUpperCase() + cat.slice(1)}
+          </h2>
+          
+          <div class="grid md:grid-cols-4 gap-6">
+            {productos.filter(p => p.categoria === cat).map(p => (
+              <div class="bg-white/30 rounded-2xl border border-[#B57E5F]/10 p-5 flex flex-col items-center text-center group hover:shadow-xl transition-all">
+                
+                {/* CONTENEDOR DE IMAGEN CUADRADA CON DETECCIÓN CORREGIDA */}
+                <div class="aspect-square w-full bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center overflow-hidden shadow-inner relative">
+                  {p.imagen ? (
+                    <img 
+                      src={typeof p.imagen === 'object' ? p.imagen.src : p.imagen} 
+                      alt={p.nombre} 
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <span class="text-xs italic text-[#B57E5F]/40 group-hover:scale-110 transition-transform duration-500 px-2">
+                      Foto {p.nombre}
+                    </span>
+                  )}
+                </div>
+
+                <h3 class="text-lg font-bold mb-2 leading-tight text-[#3D2B1F]">{p.nombre}</h3>
+                <p class="text-xs text-[#55463C] mb-4 flex-grow italic">{p.descripcion}</p>
+                <div class="mb-5">
+                  <span class="text-xl font-serif font-bold text-[#3D2B1F]">${p.precio}</span>
+                </div>
+                <button 
+                  onclick={`agregarAlCarrito('${p.nombre}', '${p.precio}')`}
+                  class="w-full bg-[#3D2B1F]
