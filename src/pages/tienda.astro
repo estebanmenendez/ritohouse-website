@@ -2,18 +2,19 @@
 import Layout from '~/layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
 
-// 1. IMPORTA TUS NUEVAS FOTOS AQUÍ:
+// 1. IMPORTACIÓN DE FOTOS (Añadimos la quinta foto aquí)
 import fotoInicio from '~/assets/images/box-inicio.png';
 import fotoPurificacion from '~/assets/images/box-purificacion.png';
 import fotoCalma from '~/assets/images/box-calma.png';
 import fotoAbundancia from '~/assets/images/box-abundancia.png'; 
+import fotoAltar from '~/assets/images/box-altar.png'; // <-- NUEVA IMPORTACIÓN PARA EXPANSIÓN
 
 const metadata = {
   title: 'Tienda de Rituales — RitoHouse',
 };
 
 const productos = [
-  // 1. ESENCIALES (Iniciación y limpieza básica)
+  // 1. ESENCIALES (Iniciación y limpieza básica - Completado con 4 boxes)
   {
     id: 'e1',
     categoria: 'esenciales',
@@ -40,14 +41,14 @@ const productos = [
   },
   {
     id: 'e4',
-    categoria: 'esenciales', // Categoria 1: Esenciales
-    nombre: 'Box Abundancia Flor', // Reemplaza a Box Intención Lunar
+    categoria: 'esenciales',
+    nombre: 'Box Abundancia Flor',
     descripcion: 'Atrae la prosperidad con botánica seca y cristales seleccionados.',
     precio: '1600',
-    imagen: fotoAbundancia, // Imagen del cuarto kit
+    imagen: fotoAbundancia, 
   },
 
-  // 2. EXPANSIÓN (Profundización y conexión)
+  // 2. EXPANSIÓN (Profundización y conexión - ¡NUEVO BOX AÑADIDO PARA COMPLETAR LOS 4!)
   {
     id: 'ex1',
     categoria: 'expansion',
@@ -55,6 +56,14 @@ const productos = [
     descripcion: 'Conexión profunda con elementos de la naturaleza y decretos.',
     precio: '1450',
     imagen: '',
+  },
+  {
+    id: 'ex2',
+    categoria: 'expansion', // <-- NUEVO INTEGRANTE EN EXPANSIÓN
+    nombre: 'Box Altar Místico',
+    descripcion: 'Eleva la vibración de tu rincón sagrado con piezas exclusivas.',
+    precio: '1650',
+    imagen: fotoAltar, // <-- Su foto correspondiente
   },
   {
     id: 'ex3',
@@ -73,7 +82,7 @@ const productos = [
     imagen: '',
   },
 
-  // 3. TRASCENDENCIA (Maestría y Alquimia)
+  // 3. TRASCENDENCIA (Maestría y Alquimia - Completado con 4 boxes)
   {
     id: 't1',
     categoria: 'trascendencia',
@@ -156,7 +165,7 @@ const productos = [
                   <span class="text-xl font-serif font-bold text-[#3D2B1F]">${p.precio}</span>
                 </div>
                 
-                {/* SOLUCIÓN DE CONFIGURACIÓN SEGURO */}
+                {/* BOTÓN DE CONFIGURACIÓN SEGURO */}
                 <button 
                   data-nombre={p.nombre}
                   data-precio={p.precio}
