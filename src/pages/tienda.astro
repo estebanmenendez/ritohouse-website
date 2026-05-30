@@ -2,10 +2,11 @@
 import Layout from '~/layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
 
-// 1. IMPORTA TUS 3 NUEVAS FOTOS AQUÍ:
+// 1. IMPORTA TUS NUEVAS FOTOS AQUÍ:
 import fotoInicio from '~/assets/images/box-inicio.png';
 import fotoPurificacion from '~/assets/images/box-purificacion.png';
 import fotoCalma from '~/assets/images/box-calma.png';
+import fotoAbundancia from '~/assets/images/box-abundancia.png'; // <-- CUARTA FOTO IMPORTADA
 
 const metadata = {
   title: 'Tienda de Rituales — RitoHouse',
@@ -61,7 +62,7 @@ const productos = [
     nombre: 'Box Abundancia Flor',
     descripcion: 'Atrae la prosperidad con botánica seca y cristales seleccionados.',
     precio: '1600',
-    imagen: '',
+    imagen: fotoAbundancia, // <-- CUARTA FOTO ASIGNADA AQUÍ
   },
   {
     id: 'ex3',
