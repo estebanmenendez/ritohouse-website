@@ -6,79 +6,76 @@ const metadata = {
   title: 'Tienda General — Accesorios RitoHouse',
 };
 
-// Catálogo organizado por categorías para facilitar el filtrado
+// Catálogo organizado por categorías listo para recibir imágenes
 const accesorios = [
   // PIEZAS DE YESO Y CEMENTO
-  { nombre: 'Bandeja Ovalada Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '350' },
-  { nombre: 'Bandeja Redonda Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '280' },
-  { nombre: 'Bandeja Corazon Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '450' },
-  { nombre: 'Hombres Pensantes', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '520' },
-  { nombre: 'Niñas Soñadoras', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '350' },
-  { nombre: 'Parejas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '280' },
-  { nombre: 'Rosa bonita', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '450' },
-  { nombre: 'Rosa Cariño', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '520' },
+  { nombre: 'Bandeja Ovalada Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '350', imagen: '' },
+  { nombre: 'Bandeja Redonda Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '280', imagen: '' },
+  { nombre: 'Bandeja Corazon Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '450', imagen: '' },
+  { nombre: 'Hombres Pensantes', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '520', imagen: '' },
+  { nombre: 'Niñas Soñadoras', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '350', imagen: '' },
+  { nombre: 'Parejas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '280', imagen: '' },
+  { nombre: 'Rosa bonita', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '450', imagen: '' },
+  { nombre: 'Rosa Cariño', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '520', imagen: '' },
 
   // VELAS Y LUZ
-  { nombre: 'Portavela Flor de Loto + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '420' },
-  { nombre: 'Portavela Acanalado + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '180' },
-  { nombre: 'Portavela Estriado + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '250' },
-  { nombre: 'Portavela Minimalista Grande + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '320' },
-  { nombre: 'Portavela Geometrico Grande + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '420' },
-  { nombre: 'Portavela Redondeado Grande + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '180' },
-  { nombre: 'Portavela Triangulos Grande + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '250' },
-  { nombre: 'Portavela Rombos Grande + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '320' },
-  { nombre: 'Portavela Geometrico Chico + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '420' },
-  { nombre: 'Portavela Redondeado Chico + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '180' },
-  { nombre: 'Portavela Triangulos Chico + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '250' },
-  { nombre: 'Portavela Rombos Chico + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '320' },
+  { nombre: 'Portavela Flor de Loto + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '420', imagen: '' },
+  { nombre: 'Portavela Acanalado + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '180', imagen: '' },
+  { nombre: 'Portavela Estriado + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '250', imagen: '' },
+  { nombre: 'Portavela Minimalista Grande + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '320', imagen: '' },
+  { nombre: 'Portavela Geometrico Grande + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '420', imagen: '' },
+  { nombre: 'Portavela Redondeado Grande + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '180', imagen: '' },
+  { nombre: 'Portavela Triangulos Grande + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '250', imagen: '' },
+  { nombre: 'Portavela Rombos Grande + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '320', imagen: '' },
+  { nombre: 'Portavela Geometrico Chico + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '420', imagen: '' },
+  { nombre: 'Portavela Redondeado Chico + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '180', imagen: '' },
+  { nombre: 'Portavela Triangulos Chico + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '250', imagen: '' },
+  { nombre: 'Portavela Rombos Chico + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '320', imagen: '' },
 
   // SAHUMADO Y AROMATERAPIA
-  { nombre: 'Inciensos Naturales', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '280' },
-  { nombre: 'Palo Santo Selecto', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '150' },
-  { nombre: 'Bolitas Incendiarias', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '280' },
-  { nombre: 'Pinos Incendiarios', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '150' },
-  { nombre: 'Difusor de Aroma Redondeado', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480' },
-  { nombre: 'Difusor de Aroma Minimalista', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190' },
-  { nombre: 'Difusor de Aroma Estriado', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480' },
-  { nombre: 'Difusor de Aroma Geometrico', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190' },
-  { nombre: 'Porta Incienso Flor de Loto', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480' },
-  { nombre: 'Porta Torre Zen', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190' },
-  { nombre: 'Porta Incienso Gota Circular', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480' },
-  { nombre: 'Porta Incienso Acanalado', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190' },
-
+  { nombre: 'Inciensos Naturales', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '280', imagen: '' },
+  { nombre: 'Palo Santo Selecto', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '150', imagen: '' },
+  { nombre: 'Bolitas Incendiarias', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '280', imagen: '' },
+  { nombre: 'Pinos Incendiarios', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '150', imagen: '' },
+  { nombre: 'Difusor de Aroma Redondeado', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480', imagen: '' },
+  { nombre: 'Difusor de Aroma Minimalista', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190', imagen: '' },
+  { nombre: 'Difusor de Aroma Estriado', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480', imagen: '' },
+  { nombre: 'Difusor de Aroma Geometrico', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190', imagen: '' },
+  { nombre: 'Porta Incienso Flor de Loto', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480', imagen: '' },
+  { nombre: 'Porta Torre Zen', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190', imagen: '' },
+  { nombre: 'Porta Incienso Gota Circular', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480', imagen: '' },
+  { nombre: 'Porta Incienso Acanalado', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190', imagen: '' },
 
   // BIENESTAR Y ELEMENTOS
-  { nombre: 'Jabón Artesanal', categoria: 'bienestar', etiqueta: 'Bienestar', precio: '220' },
-  { nombre: 'Sal de Baño Energética', categoria: 'bienestar', etiqueta: 'Bienestar', precio: '390' },
-  { nombre: 'Cristal de Cuarzo', categoria: 'bienestar', etiqueta: 'Bienestar', precio: '450' },
-  { nombre: 'Aceite Esencial Puro', categoria: 'bienestar', etiqueta: 'Bienestar', precio: '580' },
+  { nombre: 'Jabón Artesanal', categoria: 'bienestar', etiqueta: 'Bienestar', precio: '220', imagen: '' },
+  { nombre: 'Sal de Baño Energética', categoria: 'bienestar', etiqueta: 'Bienestar', precio: '390', imagen: '' },
+  { nombre: 'Cristal de Cuarzo', categoria: 'bienestar', etiqueta: 'Bienestar', precio: '450', imagen: '' },
+  { nombre: 'Aceite Esencial Puro', categoria: 'bienestar', etiqueta: 'Bienestar', precio: '580', imagen: '' },
 
   // ESTILO Y DISEÑO
-  { nombre: 'Bandeja Moderna', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220' },
-  { nombre: 'Bandeja Multiproposito', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390' },
-  { nombre: 'Florero Minimalista', categoria: 'Estilo', etiqueta: 'Estilo', precio: '450' },
-  { nombre: 'Florero Ondas', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580' },
-  { nombre: 'Florero Escultórico', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220' },
-  { nombre: 'Florero Atemporal', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390' },
-  { nombre: 'Mascota Escultórica', categoria: 'Estilo', etiqueta: 'Estilo', precio: '450' },
-  { nombre: 'Buddhas', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580' },
-  { nombre: 'Maceta de Pared Redondeada', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220' },
-  { nombre: 'Maceta de Pared Minimalista', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390' },
-  { nombre: 'Maceta de Pared Inteligente', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220' },
-  { nombre: 'Maceta de Pared Geometrica', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390' },
-  { nombre: 'Estanteria de Pared', categoria: 'Estilo', etiqueta: 'Estilo', precio: '450' },
-  { nombre: 'Porta Llaves', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580' },
-  { nombre: 'Estanteria de Pared', categoria: 'Estilo', etiqueta: 'Estilo', precio: '450' },
-  { nombre: 'Porta Llaves Home', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580' },
-  ];
+  { nombre: 'Bandeja Moderna', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220', imagen: '' },
+  { nombre: 'Bandeja Multiproposito', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390', imagen: '' },
+  { nombre: 'Florero Minimalista', categoria: 'Estilo', etiqueta: 'Estilo', precio: '450', imagen: '' },
+  { nombre: 'Florero Ondas', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580', imagen: '' },
+  { nombre: 'Florero Escultórico', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220', imagen: '' },
+  { nombre: 'Florero Atemporal', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390', imagen: '' },
+  { nombre: 'Mascota Escultórica', categoria: 'Estilo', etiqueta: 'Estilo', precio: '450', imagen: '' },
+  { nombre: 'Buddhas', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580', imagen: '' },
+  { nombre: 'Maceta de Pared Redondeada', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220', imagen: '' },
+  { nombre: 'Maceta de Pared Minimalista', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390', imagen: '' },
+  { nombre: 'Maceta de Pared Inteligente', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220', imagen: '' },
+  { nombre: 'Maceta de Pared Geometrica', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390', imagen: '' },
+  { nombre: 'Estanteria de Pared', categoria: 'Estilo', etiqueta: 'Estilo', precio: '450', imagen: '' },
+  { nombre: 'Porta Llaves', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580', imagen: '' },
+  { nombre: 'Porta Llaves Home', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580', imagen: '' },
+];
 
 const categorias = [
   { id: 'yeso-y-cemento', nombre: 'YESO' },
   { id: 'velas', nombre: 'VELAS' },
   { id: 'aromaterapia', nombre: 'AROMATERAPIA' },
   { id: 'bienestar', nombre: 'BIENESTAR' },
-  { id: 'Estilo', nombre: 'ESTILO Y DISEÑO' },
-
+  { id: 'Estilo', name: 'ESTILO Y DISEÑO' }, // Mantenemos el ID exacto 'Estilo' para que matchee con el array
 ];
 ---
 
@@ -86,7 +83,6 @@ const categorias = [
   <section class="bg-[#F2E8DF] min-h-screen py-20 text-[#3D2B1F]">
     <div class="max-w-7xl mx-auto px-4">
       
-      <!-- ENCABEZADO Y FILTROS -->
       <div class="text-center mb-16">
         <h1 class="text-5xl font-serif font-bold mb-4 uppercase tracking-tighter">Tienda General</h1>
         <p class="italic text-[#55463C] text-lg mb-8">Elementos individuales para crear tu propio espacio de calma</p>
@@ -97,33 +93,46 @@ const categorias = [
               href={`#${cat.id}`} 
               class="px-6 py-2 rounded-full border border-[#B57E5F] font-bold text-[#3D2B1F] hover:bg-[#B57E5F] hover:text-white transition-all text-sm uppercase"
             >
-              {cat.nombre}
+              {cat.id === 'Estilo' ? 'ESTILO Y DISEÑO' : cat.nombre}
             </a>
           ))}
         </div>
       </div>
 
-      <!-- SECCIONES POR CATEGORÍA -->
       {categorias.map((cat) => (
         <div id={cat.id} class="mb-20 scroll-mt-24">
           <h2 class="text-3xl font-serif font-bold text-[#B57E5F] border-b border-[#B57E5F]/20 pb-2 mb-10 uppercase tracking-widest text-center md:text-left">
-            {cat.nombre}
+            {cat.id === 'Estilo' ? 'ESTILO Y DISEÑO' : cat.nombre}
           </h2>
 
           <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
             {accesorios.filter(item => item.categoria === cat.id).map((item) => (
               <div class="bg-white/30 p-4 rounded-2xl border border-[#B57E5F]/10 hover:shadow-lg transition-all flex flex-col items-center text-center group">
-                <div class="aspect-square w-full bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center italic text-[#B57E5F]/30 overflow-hidden">
-                  <span class="group-hover:scale-110 transition-transform duration-500 text-xs px-2">Foto {item.nombre}</span>
+                
+                {/* CONTENEDOR DE IMAGEN CUADRADA CON INTEGRACIÓN INTELIGENTE */}
+                <div class="aspect-square w-full bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center overflow-hidden shadow-inner relative">
+                  {item.imagen ? (
+                    <img 
+                      src={typeof item.imagen === 'object' ? item.imagen.src : item.imagen} 
+                      alt={item.nombre} 
+                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  ) : (
+                    <span class="text-xs italic text-[#B57E5F]/40 group-hover:scale-110 transition-transform duration-500 px-2">
+                      Foto {item.nombre}
+                    </span>
+                  )}
                 </div>
                 
                 <p class="text-[10px] uppercase tracking-widest text-[#B57E5F] font-bold mb-1">{item.etiqueta}</p>
                 <h3 class="font-bold mb-2 flex-grow text-md leading-tight text-[#3D2B1F]">{item.nombre}</h3>
                 <p class="font-serif font-bold mb-4 text-lg text-[#3D2B1F]">${item.precio}</p>
                 
+                {/* BOTÓN SEGURO CON ATRIBUTOS DATA */}
                 <button 
-                  onclick={`agregarAlCarrito('${item.nombre}', '${item.precio}')`}
-                  class="w-full bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-xl text-sm font-bold hover:bg-[#B57E5F] transition-all active:scale-95 flex items-center justify-center gap-2 shadow-md"
+                  data-nombre={item.nombre}
+                  data-precio={item.precio}
+                  class="btn-agregar-carrito w-full bg-[#3D2B1F] text-[#F2E8DF] py-3 rounded-xl text-sm font-bold hover:bg-[#B57E5F] transition-all active:scale-95 flex items-center justify-center gap-2 shadow-md"
                 >
                   <Icon name="tabler:plus" class="w-4 h-4" />
                   Agregar
@@ -136,3 +145,20 @@ const categorias = [
     </div>
   </section>
 </Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const botones = document.querySelectorAll('.btn-agregar-carrito');
+    botones.forEach(boton => {
+      boton.addEventListener('click', (e) => {
+        const target = e.currentTarget as HTMLButtonElement;
+        const nombre = target.getAttribute('data-nombre');
+        const precio = target.getAttribute('data-precio');
+        
+        if (typeof (window as any).agregarAlCarrito === 'function') {
+          (window as any).agregarAlCarrito(nombre, precio);
+        }
+      });
+    });
+  });
+</script>
