@@ -9,35 +9,76 @@ const metadata = {
 // Catálogo organizado por categorías para facilitar el filtrado
 const accesorios = [
   // PIEZAS DE YESO Y CEMENTO
-  { nombre: 'Bandeja Ovalada', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '350' },
-  { nombre: 'Portavelas Cónico', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '280' },
-  { nombre: 'Cuenco de Intención', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '450' },
-  { nombre: 'Altar de Mano', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '520' },
+  { nombre: 'Bandeja Ovalada Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '350' },
+  { nombre: 'Bandeja Redonda Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '280' },
+  { nombre: 'Bandeja Corazon Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '450' },
+  { nombre: 'Hombres Pensantes', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '520' },
+  { nombre: 'Niñas Soñadoras', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '350' },
+  { nombre: 'Parejas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '280' },
+  { nombre: 'Rosa bonita', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '450' },
+  { nombre: 'Rosa Cariño', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '520' },
 
   // VELAS Y LUZ
-  { nombre: 'Vela Aromática Soja', categoria: 'velas', etiqueta: 'Velas', precio: '420' },
-  { nombre: 'Vela de Alquimia Blanca', categoria: 'velas', etiqueta: 'Velas', precio: '180' },
-  { nombre: 'Vela de Miel Pura', categoria: 'velas', etiqueta: 'Velas', precio: '250' },
-  { nombre: 'Set Velas de Té (x4)', categoria: 'velas', etiqueta: 'Velas', precio: '320' },
+  { nombre: 'Portavela Flor de Loto + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '420' },
+  { nombre: 'Portavela Acanalado + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '180' },
+  { nombre: 'Portavela Estriado + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '250' },
+  { nombre: 'Portavela Minimalista Grande + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '320' },
+  { nombre: 'Portavela Geometrico Grande + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '420' },
+  { nombre: 'Portavela Redondeado Grande + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '180' },
+  { nombre: 'Portavela Triangulos Grande + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '250' },
+  { nombre: 'Portavela Rombos Grande + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '320' },
+  { nombre: 'Portavela Geometrico Chico + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '420' },
+  { nombre: 'Portavela Redondeado Chico + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '180' },
+  { nombre: 'Portavela Triangulos Chico + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '250' },
+  { nombre: 'Portavela Rombos Chico + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '320' },
 
   // SAHUMADO Y AROMATERAPIA
   { nombre: 'Inciensos Naturales', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '280' },
   { nombre: 'Palo Santo Selecto', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '150' },
-  { nombre: 'Atado de Salvia Blanca', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480' },
-  { nombre: 'Bombitas de Defumación', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190' },
+  { nombre: 'Bolitas Incendiarias', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '280' },
+  { nombre: 'Pinos Incendiarios', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '150' },
+  { nombre: 'Difusor de Aroma Redondeado', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480' },
+  { nombre: 'Difusor de Aroma Minimalista', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190' },
+  { nombre: 'Difusor de Aroma Estriado', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480' },
+  { nombre: 'Difusor de Aroma Geometrico', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190' },
+  { nombre: 'Porta Incienso Flor de Loto', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480' },
+  { nombre: 'Porta Torre Zen', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190' },
+  { nombre: 'Porta Incienso Gota Circular', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480' },
+  { nombre: 'Porta Incienso Acanalado', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190' },
+
 
   // BIENESTAR Y ELEMENTOS
   { nombre: 'Jabón Artesanal', categoria: 'bienestar', etiqueta: 'Bienestar', precio: '220' },
   { nombre: 'Sal de Baño Energética', categoria: 'bienestar', etiqueta: 'Bienestar', precio: '390' },
   { nombre: 'Cristal de Cuarzo', categoria: 'bienestar', etiqueta: 'Bienestar', precio: '450' },
   { nombre: 'Aceite Esencial Puro', categoria: 'bienestar', etiqueta: 'Bienestar', precio: '580' },
-];
+
+  // ESTILO Y DISEÑO
+  { nombre: 'Bandeja Moderna', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220' },
+  { nombre: 'Bandeja Multiproposito', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390' },
+  { nombre: 'Florero Minimalista', categoria: 'Estilo', etiqueta: 'Estilo', precio: '450' },
+  { nombre: 'Florero Ondas', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580' },
+  { nombre: 'Florero Escultórico', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220' },
+  { nombre: 'Florero Atemporal', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390' },
+  { nombre: 'Mascota Escultórica', categoria: 'Estilo', etiqueta: 'Estilo', precio: '450' },
+  { nombre: 'Buddhas', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580' },
+  { nombre: 'Maceta de Pared Redondeada', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220' },
+  { nombre: 'Maceta de Pared Minimalista', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390' },
+  { nombre: 'Maceta de Pared Inteligente', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220' },
+  { nombre: 'Maceta de Pared Geometrica', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390' },
+  { nombre: 'Estanteria de Pared', categoria: 'Estilo', etiqueta: 'Estilo', precio: '450' },
+  { nombre: 'Porta Llaves', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580' },
+  { nombre: 'Estanteria de Pared', categoria: 'Estilo', etiqueta: 'Estilo', precio: '450' },
+  { nombre: 'Porta Llaves Home', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580' },
+  ];
 
 const categorias = [
-  { id: 'yeso-y-cemento', nombre: 'YESO Y CEMENTO' },
+  { id: 'yeso-y-cemento', nombre: 'YESO' },
   { id: 'velas', nombre: 'VELAS' },
   { id: 'aromaterapia', nombre: 'AROMATERAPIA' },
   { id: 'bienestar', nombre: 'BIENESTAR' },
+  { id: 'Estilo', nombre: 'ESTILO Y DISEÑO' },
+
 ];
 ---
 
