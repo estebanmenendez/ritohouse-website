@@ -39,7 +39,6 @@ const { language, textDirection } = I18N;
   <body class="antialiased text-default bg-page tracking-tight">
     <slot />
 
-    <!-- BOTÓN FLOTANTE DE CARRITO (WHATSAPP) -->
     <div class="fixed bottom-6 right-6 z-[999]">
       <button 
         onclick="enviarPedidoWhatsApp()"
@@ -63,32 +62,41 @@ const { language, textDirection } = I18N;
 
     <BasicScripts />
 
-    <!-- LÓGICA DEL CARRITO RITOHOUSE -->
     <script is:inline>
-      // 1. Inicialización
+      // 1. Inicialización en memoria
       let carrito = JSON.parse(localStorage.getItem('ritohouse_cart')) || [];
       
-      // Función para actualizar el número visual
+      // Función para actualizar el número visual leyendo el almacenamiento actual
       function actualizarContador() {
         const contador = document.getElementById('cart-count');
-        if (contador) contador.innerText = carrito.length;
+        if (contador) {
+          carrito = JSON.parse(localStorage.getItem('ritohouse_cart')) || [];
+          contador.innerText = carrito.length;
+        }
       }
 
-      // Ejecutar al cargar la página
+      // Escucha del ciclo de vida de Astro para actualizar el contador al navegar entre páginas
+      document.addEventListener('astro:page-load', () => {
+        actualizarContador();
+      });
+
+      // Ejecutar de forma inmediata al cargar la primera vez
       actualizarContador();
 
       // 2. Función Global para agregar productos (Se llama desde las tiendas)
       window.agregarAlCarrito = (nombre, precio) => {
+        carrito = JSON.parse(localStorage.getItem('ritohouse_cart')) || [];
         carrito.push({ nombre, precio });
         localStorage.setItem('ritohouse_cart', JSON.stringify(carrito));
         actualizarContador();
         
-        // Efecto visual simple
+        // Efecto visual simple en consola
         console.log(`Añadido: ${nombre}`);
       };
 
       // 3. Función para enviar a tu WhatsApp 099556772
       window.enviarPedidoWhatsApp = () => {
+        carrito = JSON.parse(localStorage.getItem('ritohouse_cart')) || [];
         if (carrito.length === 0) {
           alert("Tu bolsa de rituales está vacía. Añade algunos elementos para continuar.");
           return;
