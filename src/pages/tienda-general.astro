@@ -5,6 +5,7 @@ import { Icon } from 'astro-icon/components';
 // ==========================================
 // 1. CONTROL DE IMPORTACIONES ACTIVAS (Blindado)
 // ==========================================
+
 // YESO Y CEMENTO (Solo las aprobadas con éxito por el compilador)
 
 import fotoBandejaOvaladaPerlas from '~/assets/images/bandeja-ovalada-perlas.png';
@@ -21,6 +22,7 @@ import fotoPortavelaRedondeadoGrande from '~/assets/images/portavela-redondeado-
 import fotoPortavelaTriangulosGrande from '~/assets/images/portavela-triangulos-grande.png';
 
 // VELAS Y LUZ (Solo las aprobadas con éxito por el compilador)
+
 import fotoPortavelaFlorLoto from '~/assets/images/portavela-flor-loto.png';
 import fotoPortavelaAcanalado from '~/assets/images/portavela-acanalado.png';
 import fotoPortavelaEstriado from '~/assets/images/portavela-estriado.png';
@@ -34,16 +36,23 @@ import fotoPortavelaGeometricoChicoVela from '~/assets/images/portavela-geometri
 import fotoPortavelaRedondeadoChicoVela from '~/assets/images/portavela-redondeado-chico.png';
 import fotoPortavelaTriangulosChicoVela from '~/assets/images/portavela-triangulos-chico.png';
 
-// TODAS LAS DEMÁS QUEDAN COMENTADAS CON // PARA QUE NO DEN ERROR
-// import fotoPortavelaMinimalistaGrande from '~/assets/images/portavela-minimalista-grande.png';
-// import fotoPortavelaGeometricoGrande from '~/assets/images/portavela-geometrico-grande.png';
-// import fotoPortavelaRedondeadoGrande from '~/assets/images/portavela-redondeado-grande.png';
-// import fotoPortavelaTriangulosGrande from '~/assets/images/portavela-triangulos-grande.png';
-// import fotoPortavelaRombosGrande from '~/assets/images/portavela-rombos-grande.png';
-// import fotoPortavelaGeometricoChico from '~/assets/images/portavela-geometrico-chico.png';
-// import fotoPortavelaRedondeadoChico from '~/assets/images/portavela-redondeado-chico.png';
-// import fotoPortavelaTriangulosChico from '~/assets/images/portavela-triangulos-chico.png';
-// import fotoPortavelaRombosChico from '~/assets/images/portavela-rombos-chico.png';
+
+//AROMATERAPIA
+import fotoPortaInciensoFlorLoto from '~/assets/images/Porta-Incienso-Flor-Loto.png';
+import fotoPortaTorreZen from '~/assets/images/Porta-Torre-Zen.png';
+import fotoDifusorAromaRedondeado from '~/assets/images/Difusor-Aroma-Redondeado.png';
+
+
+//BIENESTAR
+
+
+//ESTILO Y DISEÑO
+import fotoMacetaGeometrica from '~/assets/images/Maceta-Geometrica.png';
+import fotoMacetaRiegoInteligente from '~/assets/images/Maceta-Riego-Inteligente.png';
+import FotoPortaLlaves from '~/assets/images/Porta-Llaves.png';
+import FotoPortaLlavesHome from '~/assets/images/Porta-Llaves-home.png';
+import FotoBandejaMultiproposito from '~/assets/images/Bandeja-Multiproposito.png';
+import FotoFloreroOndas from '~/assets/images/Florero-Ondas.png';
 
 const metadata = {
   title: 'Tienda General — Accesorios RitoHouse',
@@ -83,12 +92,12 @@ const accesorios = [
   { nombre: 'Palo Santo Selecto', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '150', imagen: '' },
   { nombre: 'Bolitas Incendiarias', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '280', imagen: '' },
   { nombre: 'Pinos Incendiarios', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '150', imagen: '' },
-  { nombre: 'Difusor de Aroma Redondeado', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480', imagen: '' },
+  { nombre: 'Difusor de Aroma Redondeado', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480', imagen: fotoDifusorAromaRedondeado },
   { nombre: 'Difusor de Aroma Minimalista', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190', imagen: '' },
   { nombre: 'Difusor de Aroma Estriado', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480', imagen: '' },
   { nombre: 'Difusor de Aroma Geometrico', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190', imagen: '' },
-  { nombre: 'Porta Incienso Flor de Loto', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480', imagen: '' },
-  { nombre: 'Porta Torre Zen', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190', imagen: '' },
+  { nombre: 'Porta Incienso Flor de Loto', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480', imagen: fotoPortaInciensoFlorLoto },
+  { nombre: 'Porta Torre Zen', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190', imagen: fotoPortaTorreZen },
   { nombre: 'Porta Incienso Gota Circular', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '480', imagen: '' },
   { nombre: 'Porta Incienso Acanalado', categoria: 'aromaterapia', etiqueta: 'Aromaterapia', precio: '190', imagen: '' },
 
@@ -100,20 +109,20 @@ const accesorios = [
 
   // ESTILO Y DISEÑO
   { nombre: 'Bandeja Moderna', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220', imagen: '' },
-  { nombre: 'Bandeja Multiproposito', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390', imagen: '' },
+  { nombre: 'Bandeja Multiproposito', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390', imagen: FotoBandejaMultiproposito },
   { nombre: 'Florero Minimalista', categoria: 'Estilo', etiqueta: 'Estilo', precio: '450', imagen: '' },
-  { nombre: 'Florero Ondas', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580', imagen: '' },
+  { nombre: 'Florero Ondas', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580', imagen: FotoFloreroOndas },
   { nombre: 'Florero Escultórico', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220', imagen: '' },
   { nombre: 'Florero Atemporal', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390', imagen: '' },
   { nombre: 'Mascota Escultórica', categoria: 'Estilo', etiqueta: 'Estilo', precio: '450', imagen: '' },
   { nombre: 'Buddhas', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580', imagen: '' },
   { nombre: 'Maceta de Pared Redondeada', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220', imagen: '' },
   { nombre: 'Maceta de Pared Minimalista', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390', imagen: '' },
-  { nombre: 'Maceta de Pared Inteligente', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220', imagen: '' },
-  { nombre: 'Maceta de Pared Geometrica', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390', imagen: '' },
+  { nombre: 'Maceta Riego Inteligente', categoria: 'Estilo', etiqueta: 'Estilo', precio: '220', imagen: fotoMacetaRiegoInteligente },
+  { nombre: 'Maceta Geometrica', categoria: 'Estilo', etiqueta: 'Estilo', precio: '390', imagen: fotoMacetaGeometrica },
   { nombre: 'Estanteria de Pared', categoria: 'Estilo', etiqueta: 'Estilo', precio: '450', imagen: '' },
-  { nombre: 'Porta Llaves', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580', imagen: '' },
-  { nombre: 'Porta Llaves Home', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580', imagen: '' },
+  { nombre: 'Porta Llaves', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580', imagen: FotoPortaLlaves },
+  { nombre: 'Porta Llaves Home', categoria: 'Estilo', etiqueta: 'Estilo', precio: '580', imagen: FotoPortaLlavesHome },
 ];
 
 const categorias = [
