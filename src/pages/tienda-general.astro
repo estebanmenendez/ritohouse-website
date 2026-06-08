@@ -2,6 +2,13 @@
 import Layout from '~/layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
 
+// 1. IMPORTACIÓN DE NUEVAS FOTOS DE LA TIENDA GENERAL (Ejemplos):
+import fotoBandejaOvalada from '~/assets/images/py-bandeja-ov-perla.png;
+import fotoBandejaCircun from '~/assets/images/py-bandeja-circun-perla.png;
+import fotoBandejaCora from '~/assets/images/py-bandeja-cora-perla;
+import fotoPortavelas from '~/assets/images/portavelas-conico.png';
+import fotoVelaSoja from '~/assets/images/vela-soja.png';
+
 const metadata = {
   title: 'Tienda General — Accesorios RitoHouse',
 };
@@ -9,9 +16,9 @@ const metadata = {
 // Catálogo organizado por categorías listo para recibir imágenes
 const accesorios = [
   // PIEZAS DE YESO Y CEMENTO
-  { nombre: 'Bandeja Ovalada Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '350', imagen: '' },
-  { nombre: 'Bandeja Redonda Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '280', imagen: '' },
-  { nombre: 'Bandeja Corazon Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '450', imagen: '' },
+  { nombre: 'Bandeja Ovalada Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '350', imagen: fotoBandejaOvalada },
+  { nombre: 'Bandeja Redonda Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '280', imagen: fotoBandejaCircun },
+  { nombre: 'Bandeja Corazon Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '450', imagen: fotoBandejaCora },
   { nombre: 'Hombres Pensantes', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '520', imagen: '' },
   { nombre: 'Niñas Soñadoras', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '350', imagen: '' },
   { nombre: 'Parejas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '280', imagen: '' },
