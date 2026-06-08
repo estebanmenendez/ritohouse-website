@@ -136,20 +136,23 @@ const productos = [
       {['esenciales', 'expansion', 'trascendencia'].map((cat, index) => (
         <div id={cat} class="mb-24 scroll-mt-24">
           <h2 class="text-3xl font-serif font-bold text-[#B57E5F] border-b border-[#B57E5F]/20 pb-2 mb-10 uppercase tracking-widest text-center md:text-left">
-            {index + 1}. Rituales de {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            {cat === 'esenciales' && "I. Rituales de Iniciación y Purificación"}
+            {cat === 'expansion' && "II. Rituales de Expansión y Conexión"}
+            {cat === 'trascendencia' && "III. Rituales de Trascendencia Total"}
           </h2>
           
           <div class="grid md:grid-cols-4 gap-6">
             {productos.filter(p => p.categoria === cat).map(p => (
               <div class="bg-white/30 rounded-2xl border border-[#B57E5F]/10 p-5 flex flex-col items-center text-center group hover:shadow-xl transition-all">
                 
-                {/* CONTENEDOR DE IMAGEN CUADRADA */}
+                {/* CONTENEDOR DE IMAGEN CUADRADA CON ZOOM */}
                 <div class="aspect-square w-full bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center overflow-hidden shadow-inner relative">
                   {p.imagen ? (
                     <img 
                       src={typeof p.imagen === 'object' ? p.imagen.src : p.imagen} 
                       alt={p.nombre} 
-                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      data-ampliar={typeof p.imagen === 'object' ? p.imagen.src : p.imagen}
+                      class="img-producto w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-zoom-in"
                     />
                   ) : (
                     <span class="text-xs italic text-[#B57E5F]/40 group-hover:scale-110 transition-transform duration-500 px-2">
@@ -181,8 +184,18 @@ const productos = [
   </section>
 </Layout>
 
+<div id="modal-lightbox" class="fixed inset-0 bg-[#3D2B1F]/90 backdrop-blur-sm z-[9999] hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+  <button id="cerrar-lightbox" class="absolute top-6 right-6 text-[#F2E8DF] hover:text-[#B57E5F] transition-colors bg-white/10 p-2 rounded-full">
+    <Icon name="tabler:x" class="w-8 h-8" />
+  </button>
+  <div class="max-w-3xl max-h-[85vh] overflow-hidden rounded-2xl shadow-2xl relative bg-[#F2E8DF] p-2">
+    <img id="imagen-lightbox" src="" alt="Producto ampliado" class="max-w-full max-h-[80vh] object-contain rounded-xl" />
+  </div>
+</div>
+
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  const inicializarTiendaRituales = () => {
+    // ---- EVENTO DE BOTONES DE CARRITO ----
     const botones = document.querySelectorAll('.btn-agregar-carrito');
     botones.forEach(boton => {
       boton.addEventListener('click', (e) => {
@@ -195,5 +208,49 @@ const productos = [
         }
       });
     });
-  });
+
+    // ---- EFECTO LIGHTBOX (ZOOM FOTOS) ----
+    const modal = document.getElementById('modal-lightbox');
+    const imgModal = document.getElementById('imagen-lightbox') as HTMLImageElement;
+    const btnCerrar = document.getElementById('cerrar-lightbox');
+    const imagenesClickables = document.querySelectorAll('.img-producto');
+
+    imagenesClickables.forEach(img => {
+      img.addEventListener('click', (e) => {
+        const target = e.target as HTMLImageElement;
+        const rutaImagen = target.getAttribute('data-ampliar');
+        
+        if (modal && imgModal && rutaImagen) {
+          imgModal.src = rutaImagen;
+          imgModal.alt = target.alt;
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+          setTimeout(() => modal.classList.remove('opacity-0'), 10);
+        }
+      });
+    });
+
+    const cerrarModal = () => {
+      if (modal) {
+        modal.classList.add('opacity-0');
+        setTimeout(() => {
+          modal.classList.remove('flex');
+          modal.classList.add('hidden');
+        }, 300);
+      }
+    };
+
+    if (btnCerrar) btnCerrar.addEventListener('click', cerrarModal);
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) cerrarModal();
+      });
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') cerrarModal();
+    });
+  };
+
+  // Escucha segura de ciclo de vida compatible con ClientRouter de Astro
+  document.addEventListener('astro:page-load', inicializarTiendaRituales);
 </script>
