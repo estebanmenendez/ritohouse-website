@@ -7,11 +7,10 @@ import { Icon } from 'astro-icon/components';
 // ==========================================
 
 // YESO Y CEMENTO (Solo las aprobadas con éxito por el compilador)
-
 import fotoBandejaOvaladaPerlas from '~/assets/images/bandeja-ovalada-perlas.png';
 import fotoBandejaRedondaPerlas from '~/assets/images/bandeja-redonda-perlas.png';
 import fotoBandejaCorazonPerlas from '~/assets/images/bandeja-corazon-perlas.png';
-import fotoHombresPensantes from '~/assets/images/hombres-pensantes.png';
+import fontHombresPensantes from '~/assets/images/hombres-pensantes.png';
 import fotoNinasSonadoras from '~/assets/images/ninas-sonadoras.png';
 import fotoParejas from '~/assets/images/parejas.png';
 import fotoRosaBonita from '~/assets/images/rosa-bonita.png';
@@ -26,7 +25,6 @@ import fotoBoxCeleste from '~/assets/images/box-celeste.png';
 import fotoBoxRojizo from '~/assets/images/box-rojizo.png';
 
 // VELAS Y LUZ (Solo las aprobadas con éxito por el compilador)
-
 import fotoPortavelaFlorLoto from '~/assets/images/portavela-flor-loto.png';
 import fotoPortavelaAcanalado from '~/assets/images/portavela-acanalado.png';
 import fotoPortavelaEstriado from '~/assets/images/portavela-estriado.png';
@@ -39,7 +37,6 @@ import fotoPortavelaMinimalistaChicoVela from '~/assets/images/portavela-minimal
 import fotoPortavelaGeometricoChicoVela from '~/assets/images/portavela-geometrico-chico.png';
 import fotoPortavelaRedondeadoChicoVela from '~/assets/images/portavela-redondeado-chico.png';
 import fotoPortavelaTriangulosChicoVela from '~/assets/images/portavela-triangulos-chico.png';
-
 
 //AROMATERAPIA
 import fotoInciensosArtesanales from '~/assets/images/inciensos-artesanales.png';
@@ -56,7 +53,6 @@ import fotoDifusorAromaModerno from '~/assets/images/difusor-aroma-moderno.png';
 import fotoDifusorAromaMinimalista from '~/assets/images/difusor-aroma-minimalista.png';
 
 //BIENESTAR
-
 
 //ESTILO Y DISEÑO
 import fotoMacetaGeometrica from '~/assets/images/Maceta-Geometrica.png';
@@ -91,7 +87,7 @@ const accesorios = [
   { nombre: 'Bandeja Ovalada Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '350', imagen: fotoBandejaOvaladaPerlas },
   { nombre: 'Bandeja Redonda Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '280', imagen: fotoBandejaRedondaPerlas },
   { nombre: 'Bandeja Corazon Perlas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '450', imagen: fotoBandejaCorazonPerlas },
-  { nombre: 'Hombres Pensantes', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '520', imagen: fotoHombresPensantes },
+  { nombre: 'Hombres Pensantes', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '520', imagen: fontHombresPensantes },
   { nombre: 'Niñas Soñadoras', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '350', imagen: fotoNinasSonadoras },
   { nombre: 'Parejas', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '280', imagen: fotoParejas },
   { nombre: 'Rosa bonita', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '450', imagen: fotoRosaBonita },
@@ -104,8 +100,6 @@ const accesorios = [
   { nombre: 'Box Marmolado Ocre', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '420', imagen: fotoBoxAmarillo },
   { nombre: 'Box Marmolado Celeste', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '420', imagen: fotoBoxCeleste },
   { nombre: 'Box Marmolado Rojizo', categoria: 'yeso-y-cemento', etiqueta: 'Yeso y Cemento', precio: '420', imagen: fotoBoxRojizo },
-
-
 
   // VELAS Y LUZ
   { nombre: 'Portavela Flor de Loto + Vela Aromatica', categoria: 'velas', etiqueta: 'Velas', precio: '420', imagen: fotoPortavelaFlorLoto },
@@ -162,9 +156,8 @@ const accesorios = [
   // LUZ
   { nombre: 'Lampara Moderna', categoria: 'Luz', etiqueta: 'Luz', precio: '390', imagen: fotoLamparaModerna },
   { nombre: 'Lampara Minimalista', categoria: 'Luz', etiqueta: 'Luz', precio: '450', imagen: fotoLamparaMinimalista },
-  { nombre: 'Lampara Cilindrica', categoria: 'Luz', etiqueta: 'Luz', precio: '580', imagen: fotoLamparaCilindrica },
+  { nombre: 'Lampara Cilindrica', font: '', categoria: 'Luz', etiqueta: 'Luz', precio: '580', imagen: fotoLamparaCilindrica },
   { nombre: 'Lampara Colgante', categoria: 'Luz', etiqueta: 'Luz', precio: '580', imagen: fotoLamparaColgante },
-
 ];
 
 const categorias = [
@@ -174,7 +167,6 @@ const categorias = [
   { id: 'bienestar', nombre: 'BIENESTAR' },
   { id: 'Estilo', nombre: 'ESTILO Y DISEÑO' },
   { id: 'Luz', nombre: 'ILUMINACIÓN' },
-
 ];
 ---
 
@@ -208,13 +200,14 @@ const categorias = [
             {accesorios.filter(item => item.categoria === cat.id).map((item) => (
               <div class="bg-white/30 p-4 rounded-2xl border border-[#B57E5F]/10 hover:shadow-lg transition-all flex flex-col items-center text-center group">
                 
-                {/* CONTENEDOR DE IMAGEN CUADRADA */}
+                {/* CONTENEDOR DE IMAGEN CUADRADA CON ZOOM */}
                 <div class="aspect-square w-full bg-[#EAE5DE] rounded-xl mb-4 flex items-center justify-center overflow-hidden shadow-inner relative">
                   {item.imagen ? (
                     <img 
                       src={typeof item.imagen === 'object' ? item.imagen.src : item.imagen} 
                       alt={item.nombre} 
-                      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      data-ampliar={typeof item.imagen === 'object' ? item.imagen.src : item.imagen}
+                      class="img-producto w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 cursor-zoom-in"
                     />
                   ) : (
                     <span class="text-xs italic text-[#B57E5F]/40 group-hover:scale-110 transition-transform duration-500 px-2">
@@ -245,8 +238,18 @@ const categorias = [
   </section>
 </Layout>
 
+<div id="modal-lightbox" class="fixed inset-0 bg-[#3D2B1F]/90 backdrop-blur-sm z-[9999] hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+  <button id="cerrar-lightbox" class="absolute top-6 right-6 text-[#F2E8DF] hover:text-[#B57E5F] transition-colors bg-white/10 p-2 rounded-full">
+    <Icon name="tabler:x" class="w-8 h-8" />
+  </button>
+  <div class="max-w-3xl max-h-[85vh] overflow-hidden rounded-2xl shadow-2xl relative bg-[#F2E8DF] p-2">
+    <img id="imagen-lightbox" src="" alt="Producto ampliado" class="max-w-full max-h-[80vh] object-contain rounded-xl" />
+  </div>
+</div>
+
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
+  const inicializarTiendaGeneral = () => {
+    // ---- EVENTO DE BOTONES DE CARRITO ----
     const botones = document.querySelectorAll('.btn-agregar-carrito');
     botones.forEach(boton => {
       boton.addEventListener('click', (e) => {
@@ -259,5 +262,49 @@ const categorias = [
         }
       });
     });
-  });
+
+    // ---- EFECTO LIGHTBOX (ZOOM FOTOS) ----
+    const modal = document.getElementById('modal-lightbox');
+    const imgModal = document.getElementById('imagen-lightbox') as HTMLImageElement;
+    const btnCerrar = document.getElementById('cerrar-lightbox');
+    const imagenesClickables = document.querySelectorAll('.img-producto');
+
+    imagenesClickables.forEach(img => {
+      img.addEventListener('click', (e) => {
+        const target = e.target as HTMLImageElement;
+        const rutaImagen = target.getAttribute('data-ampliar');
+        
+        if (modal && imgModal && rutaImagen) {
+          imgModal.src = rutaImagen;
+          imgModal.alt = target.alt;
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+          setTimeout(() => modal.classList.remove('opacity-0'), 10);
+        }
+      });
+    });
+
+    const cerrarModal = () => {
+      if (modal) {
+        modal.classList.add('opacity-0');
+        setTimeout(() => {
+          modal.classList.remove('flex');
+          modal.classList.add('hidden');
+        }, 300);
+      }
+    };
+
+    if (btnCerrar) btnCerrar.addEventListener('click', cerrarModal);
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) cerrarModal();
+      });
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') cerrarModal();
+    });
+  };
+
+  // Se ejecuta de manera segura al cargar y cambiar de página bajo el Router de Astro
+  document.addEventListener('astro:page-load', inicializarTiendaGeneral);
 </script>
