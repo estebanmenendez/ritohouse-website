@@ -36,14 +36,40 @@ const { language, textDirection } = I18N;
     <ClientRouter fallback="swap" />
   </head>
 
-  <body class="antialiased text-default bg-page tracking-tight">
+  <body class="antialiased text-default bg-page tracking-tight relative">
     <slot />
 
-    <div class="fixed bottom-6 right-6 z-[999]">
+    <div class="fixed bottom-6 right-6 z-[999] flex flex-col items-end gap-2">
+      
+      <div 
+        id="carrito-desplegable" 
+        class="hidden w-72 md:w-80 bg-[#F2E8DF] border-2 border-[#3D2B1F] rounded-2xl shadow-2xl p-4 text-[#3D2B1F] mb-1"
+      >
+        <h4 class="font-serif font-bold text-base border-b border-[#3D2B1F]/20 pb-2 mb-3 uppercase tracking-wider text-center">
+          Tu Bolsa de Rituales
+        </h4>
+        
+        <div id="carrito-lista-items" class="max-h-48 overflow-y-auto space-y-2 pr-1 mb-3 text-sm">
+          </div>
+
+        <div class="border-t border-[#3D2B1F]/20 pt-2 flex justify-between items-center font-bold text-sm mb-3">
+          <span>Total estimado:</span>
+          <span id="carrito-total-dinamico">$0</span>
+        </div>
+
+        <button 
+          onclick="enviarPedidoWhatsApp()"
+          class="w-full bg-[#3D2B1F] text-[#F2E8DF] py-2.5 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-[#B57E5F] transition-all flex items-center justify-center gap-2 shadow-md"
+        >
+          <Icon name="tabler:brand-whatsapp" class="w-4 h-4" />
+          Confirmar Pedido
+        </button>
+      </div>
+
       <button 
-        onclick="enviarPedidoWhatsApp()"
-        class="group flex items-center gap-3 bg-[#3D2B1F] text-[#F2E8DF] p-4 rounded-full shadow-2xl hover:bg-[#B57E5F] transition-all duration-300 transform hover:scale-110"
-        aria-label="Enviar pedido por WhatsApp"
+        onclick="toggleCarritoDesplegable()"
+        class="group flex items-center gap-3 bg-[#3D2B1F] text-[#F2E8DF] p-4 rounded-full shadow-2xl hover:bg-[#B57E5F] transition-all duration-300 transform hover:scale-105"
+        aria-label="Ver bolsa de compras"
       >
         <div class="relative">
           <Icon name="tabler:shopping-bag" class="w-7 h-7" />
@@ -55,7 +81,7 @@ const { language, textDirection } = I18N;
           </span>
         </div>
         <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-500 ease-in-out font-bold uppercase tracking-widest text-sm">
-          Enviar Pedido
+          Ver Mi Bolsa
         </span>
       </button>
     </div>
@@ -63,10 +89,68 @@ const { language, textDirection } = I18N;
     <BasicScripts />
 
     <script is:inline>
-      // 1. Inicialización en memoria
       let carrito = JSON.parse(localStorage.getItem('ritohouse_cart')) || [];
       
-      // Función para actualizar el número visual leyendo el almacenamiento actual
+      // Control de apertura/cierre del panel
+      function toggleCarritoDesplegable() {
+        const panel = document.getElementById('carrito-desplegable');
+        if (panel) {
+          panel.classList.toggle('hidden');
+          if (!panel.classList.contains('hidden')) {
+            renderizarCarrito();
+          }
+        }
+      }
+
+      // Renderiza la lista con opción de eliminar de forma individual
+      function renderizarCarrito() {
+        const contenedorLista = document.getElementById('carrito-lista-items');
+        const contenedorTotal = document.getElementById('carrito-total-dinamico');
+        carrito = JSON.parse(localStorage.getItem('ritohouse_cart')) || [];
+
+        if (!contenedorLista) return;
+
+        if (carrito.length === 0) {
+          contenedorLista.innerHTML = `<p class="text-center italic text-[#3D2B1F]/60 py-4 text-xs">Tu bolsa está vacía.</p>`;
+          if (contenedorTotal) contenedorTotal.innerText = "$0";
+          return;
+        }
+
+        let html = "";
+        let sumaTotal = 0;
+
+        carrito.forEach((item, index) => {
+          sumaTotal += parseInt(item.precio);
+          html += `
+            <div class="flex justify-between items-center bg-white/50 p-2 rounded-xl border border-[#3D2B1F]/5 gap-2">
+              <div class="flex-grow min-w-0">
+                <p class="font-bold leading-tight truncate text-xs text-[#3D2B1F]">${item.nombre}</p>
+                <p class="text-xs text-[#B57E5F] font-serif font-bold mt-0.5">$${item.precio}</p>
+              </div>
+              <button 
+                onclick="eliminarDelCarrito(${index})" 
+                class="text-[#3D2B1F]/50 hover:text-red-600 p-1 rounded-lg hover:bg-red-50 transition-all text-xs"
+                title="Eliminar del carrito"
+              >
+                🗑️
+              </button>
+            </div>
+          `;
+        });
+
+        contenedorLista.innerHTML = html;
+        if (contenedorTotal) contenedorTotal.innerText = `$${sumaTotal}`;
+      }
+
+      // Elimina un objeto por índice y refresca contadores y listas
+      window.eliminarDelCarrito = (index) => {
+        carrito = JSON.parse(localStorage.getItem('ritohouse_cart')) || [];
+        carrito.splice(index, 1);
+        localStorage.setItem('ritohouse_cart', JSON.stringify(carrito));
+        actualizarContador();
+        renderizarCarrito();
+      };
+      
       function actualizarContador() {
         const contador = document.getElementById('cart-count');
         if (contador) {
@@ -75,26 +159,33 @@ const { language, textDirection } = I18N;
         }
       }
 
-      // Escucha del ciclo de vida de Astro para actualizar el contador al navegar entre páginas
+      // Soporte completo para el ciclo de vida de ClientRouter (Navegación fluida)
       document.addEventListener('astro:page-load', () => {
         actualizarContador();
+        const panel = document.getElementById('carrito-desplegable');
+        if (panel && !panel.classList.contains('hidden')) {
+          renderizarCarrito();
+        }
       });
 
-      // Ejecutar de forma inmediata al cargar la primera vez
       actualizarContador();
 
-      // 2. Función Global para agregar productos (Se llama desde las tiendas)
+      // Función global de agregado
       window.agregarAlCarrito = (nombre, precio) => {
         carrito = JSON.parse(localStorage.getItem('ritohouse_cart')) || [];
         carrito.push({ nombre, precio });
         localStorage.setItem('ritohouse_cart', JSON.stringify(carrito));
         actualizarContador();
         
-        // Efecto visual simple en consola
+        // Si el panel de desglose está visible, actualiza los montos al instante
+        const panel = document.getElementById('carrito-desplegable');
+        if (panel && !panel.classList.contains('hidden')) {
+          renderizarCarrito();
+        }
         console.log(`Añadido: ${nombre}`);
       };
 
-      // 3. Función para enviar a tu WhatsApp 099556772
+      // Despacho final a la API de WhatsApp
       window.enviarPedidoWhatsApp = () => {
         carrito = JSON.parse(localStorage.getItem('ritohouse_cart')) || [];
         if (carrito.length === 0) {
@@ -112,7 +203,6 @@ const { language, textDirection } = I18N;
 
         mensaje += `%0A*Total estimado: $${total}*%0A%0A¿Me podrían confirmar disponibilidad y formas de pago? 🙏`;
         
-        // Tu número con formato internacional
         const whatsappUrl = `https://wa.me/59899556772?text=${mensaje}`;
         window.open(whatsappUrl, '_blank');
       };
